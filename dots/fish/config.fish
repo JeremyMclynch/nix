@@ -6,12 +6,14 @@ if status is-interactive
     command -v direnv &>/dev/null && direnv hook fish | source
     command -v zoxide &>/dev/null && zoxide init fish --cmd cd | source
 
-    dotpath = "~/nix/dots"
+    set dotpath /home/jeremy/nix/dots
+
+    set sshpath (which ssh)
 
     # Better ls
     alias ls='eza --icons --group-directories-first -1'
-    alias ssh='TERM=xterm-256color /usr/bin/ssh'
-    alias clip='/usr/bin/xclip -selection clipboard'
+    alias ssh='TERM=xterm-256color $sshpath'
+    alias clip='wl-copy'
     alias softboot='systemctl soft-reboot'
 
     # Abbrs
@@ -20,17 +22,16 @@ if status is-interactive
     abbr vipkg 'nvim ~/nix/home/jeremy/packages.nix'
     abbr cdhost 'nvim ~/nix/hosts/laptop/default.nix'
     abbr vpn 'openconnect-sso --server vpn.njit.edu -- --backgrouind'
-    abbr pacman 'sudo pacman -Sy'
     abbr sshwulver 'ssh jmm277@wulver.njit.edu'
     abbr sshwspr1 'ssh wsprdaemon@njit-bl-1'
     abbr sshwspr2 'ssh wsprdaemon@njit-bl-2'
     abbr sshd 'ssh jeremy@archdesktop'
-    abbr viconf 'nvim ${dotpath}/hypr/hyprland.conf'
-    abbr vivar 'nvim ${dotpath}/hypr/variables.conf'
-    abbr vibind 'nvim ${dotpath}/hypr/hyprland/keybinds.conf'
-    abbr vivar 'nvim ${dotpath}/hypr/variables.conf'
-    abbr cdh 'cd ${dotpath}/hypr/hyprland/'
-    abbr vifish 'nvim ${dotpath}/fish/config.fish'
+    abbr viconf 'nvim $dotpath/hypr/hyprland.conf'
+    abbr vivar 'nvim $dotpath/hypr/variables.conf'
+    abbr vibind 'nvim $dotpath/hypr/hyprland/keybinds.conf'
+    abbr vivar 'nvim $dotpath/hypr/variables.conf'
+    abbr cdh 'cd $dotpath/hypr/hyprland/'
+    abbr vifish 'nvim $dotpath/fish/config.fish'
     abbr vi nvim
     abbr vim nvim
     abbr lg lazygit

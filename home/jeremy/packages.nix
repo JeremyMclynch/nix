@@ -94,5 +94,9 @@
     zoxide
     gcc
     lxqt.pavucontrol-qt
+    slack
+    discord
+    nemo
+    xclip
   ];
 }
