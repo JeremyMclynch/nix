@@ -10,8 +10,8 @@
   services.upower.enable = true;
 
   services.logind.settings.Login = {
-  HandleLidSwitch = lib.mkDefault "suspend";
-  HandleLidSwitchExternalPower = lib.mkDefault "ignore";
+  HandleLidSwitch = lib.mkDefault "hibernate"; #suspend";
+  HandleLidSwitchExternalPower = lib.mkDefault "suspend"; #"ignore";
   HandleLidSwitchDocked = lib.mkDefault "ignore";
   };
 }
