@@ -4,7 +4,7 @@
   users.users.jeremy = {
     isNormalUser = true;
     description = "Jeremy McLynch";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "podman"];
 
     # Prefer putting user-scoped packages into Home Manager.
     packages = [ ];

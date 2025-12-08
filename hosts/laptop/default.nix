@@ -33,10 +33,15 @@
   programs.nix-ld.enable = true;
   fonts.fontDir.enable = true;
 
-      
-  virtualisation.docker = {
-  enable = true;
+  virtualisation = {
+  containers.enable = true;
+  #docker.enable = true;
+  podman = {
+    enable = true;
+    dockerCompat = true;
+    defaultNetwork.settings.dns_enabled = true; # Required for containers under podman-compose to be able to talk to each other.
   };
+};
 
 
   environment.systemPackages = with pkgs; [
@@ -48,6 +53,7 @@
     debootstrap
     xhost
     docker
+    podman
 
     (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
       pkgs.buildFHSEnv (base // {
