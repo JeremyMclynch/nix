@@ -12,6 +12,6 @@
   services.logind.settings.Login = {
   HandleLidSwitch = lib.mkDefault "suspend"; # or hybernate
   HandleLidSwitchExternalPower = lib.mkDefault "suspend"; #"ignore";
-  HandleLidSwitchDocked = lib.mkDefault "ignore";
+  HandleLidSwitchDocked = lib.mkDefault "suspend";
   };
 }

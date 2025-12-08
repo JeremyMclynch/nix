@@ -17,7 +17,7 @@ if status is-interactive
     alias softboot='systemctl soft-reboot'
 
     # Abbrs
-    abbr rebuild 'sudo nixos-rebuild switch --flake ~/nix/#laptop'
+    abbr rebuild '$dotpath/../scripts/rebuild.sh' #'sudo nixos-rebuild switch --flake ~/nix/#laptop'
     abbr cdhome 'cd ~/nix/home/jeremy/'
     abbr vipkg 'nvim ~/nix/home/jeremy/packages.nix'
     abbr cdhost 'nvim ~/nix/hosts/laptop/default.nix'
