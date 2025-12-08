@@ -57,9 +57,9 @@
       executable = true; # Makes all files in the linked directory executable
     };
     ".local/share/fonts" = {
-        source = ../../fonts
+        source = ../../fonts;
         recursive = true;
-      } 
+      };
   };
 
   imports = [
