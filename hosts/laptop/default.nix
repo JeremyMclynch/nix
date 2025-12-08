@@ -34,6 +34,9 @@
   fonts.fontDir.enable = true;
 
       
+  virtualisation.docker = {
+  enable = true;
+  };
 
 
   environment.systemPackages = with pkgs; [
@@ -44,6 +47,7 @@
     quartus-prime-lite
     debootstrap
     xhost
+    docker
 
     (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
       pkgs.buildFHSEnv (base // {
