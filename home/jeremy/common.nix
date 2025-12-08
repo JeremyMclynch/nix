@@ -31,32 +31,36 @@
  #       };
  
  home.file = {
-  ".config/hypr" = {
-    source = ../../dots/hypr;
-    recursive = true;
-    executable = true; # Makes all files in the linked directory executable
+    ".config/hypr" = {
+      source = ../../dots/hypr;
+      recursive = true;
+      executable = true; # Makes all files in the linked directory executable
     };
-".config/fish" = {
-    source = ../../dots/fish;
-    recursive = true;
-    executable = true; # Makes all files in the linked directory executable
+    ".config/fish" = {
+      source = ../../dots/fish;
+      recursive = true;
+      executable = true; # Makes all files in the linked directory executable
     };
-".config/foot" = {
-    source = ../../dots/foot;
-    recursive = true;
-    executable = true; # Makes all files in the linked directory executable
+    ".config/foot" = {
+      source = ../../dots/foot;
+      recursive = true;
+      executable = true; # Makes all files in the linked directory executable
     };
-".config/fastfetch" = {
-    source = ../../dots/fastfetch;
-    recursive = true;
-    executable = true; # Makes all files in the linked directory executable
+    ".config/fastfetch" = {
+      source = ../../dots/fastfetch;
+      recursive = true;
+      executable = true; # Makes all files in the linked directory executable
     };
-".config/btop" = {
-    source = ../../dots/btop;
-    recursive = true;
-    executable = true; # Makes all files in the linked directory executable
+    ".config/btop" = {
+      source = ../../dots/btop;
+      recursive = true;
+      executable = true; # Makes all files in the linked directory executable
     };
-    };
+    ".local/share/fonts" = {
+        source = ../../fonts
+        recursive = true;
+      } 
+  };
 
   imports = [
     ./packages.nix
