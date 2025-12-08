@@ -1,5 +1,5 @@
 
-{ inputs, lib, config, pkgs, ... }:
+{ inputs, lib, options, config, pkgs, ... }:
 
 {
   imports = [
@@ -33,17 +33,7 @@
   programs.nix-ld.enable = true;
   fonts.fontDir.enable = true;
 
-    nixpkgs.overlays = let
-    nix-matlab = import (builtins.fetchTarball "https://gitlab.com/doronbehar/nix-matlab/-/archive/master/nix-matlab-master.tar.gz");
-  in [
-    nix-matlab.overlay
-    (
-      final: prev: {
-        # Your own overlays...
-      }
-    )
-  ];
-  
+      
 
 
   environment.systemPackages = with pkgs; [
@@ -52,7 +42,6 @@
     vivaldi
     git
     quartus-prime-lite
-    matlab
 
     (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
       pkgs.buildFHSEnv (base // {
