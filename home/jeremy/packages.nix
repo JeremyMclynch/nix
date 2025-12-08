@@ -98,5 +98,6 @@
     discord
     nemo
     xclip
+    obsidian
   ];
 }
