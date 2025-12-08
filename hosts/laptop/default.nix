@@ -43,6 +43,7 @@
     git
     quartus-prime-lite
     debootstrap
+    xhost
 
     (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
       pkgs.buildFHSEnv (base // {
