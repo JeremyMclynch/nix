@@ -42,6 +42,7 @@
     vivaldi
     git
     quartus-prime-lite
+    debootstrap
 
     (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
       pkgs.buildFHSEnv (base // {
