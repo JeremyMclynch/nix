@@ -1,5 +1,5 @@
 
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   home.username = "jeremy";
   home.homeDirectory = "/home/jeremy";
@@ -56,11 +56,9 @@
       recursive = true;
       executable = true; # Makes all files in the linked directory executable
     };
-    ".local/share/fonts" = {
-        source = ../../fonts;
-        recursive = true;
-      };
-  };
+ };
+
+
 
   imports = [
     ./packages.nix

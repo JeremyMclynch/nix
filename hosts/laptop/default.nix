@@ -31,6 +31,7 @@
   #fonts.packages = with pkgs; [ nerd-fonts.caskaydia-cove ];
 
   programs.nix-ld.enable = true;
+  fonts.fontDir.enable = true;
 
 
   environment.systemPackages = with pkgs; [
