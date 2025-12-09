@@ -99,5 +99,6 @@
     nemo
     xclip
     obsidian
+    remmina
   ];
 }
