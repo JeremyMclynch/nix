@@ -101,5 +101,6 @@
     obsidian
     remmina
     vscode
+    zoom
   ];
 }
