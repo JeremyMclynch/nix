@@ -100,5 +100,6 @@
     xclip
     obsidian
     remmina
+    vscode
   ];
 }
