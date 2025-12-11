@@ -37,6 +37,8 @@ virtualisation.docker = {
   enable = true;
 };
 
+services.openssh.enable = true;
+
 #  virtualisation = {
 #  containers.enable = true;
 #  #docker.enable = true;
