@@ -102,6 +102,5 @@
     remmina
     vscode
     zoom-us
-    google-chrome
   ];
 }
