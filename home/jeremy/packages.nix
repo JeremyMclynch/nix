@@ -102,5 +102,6 @@
     remmina
     vscode
     zoom-us
+    addwater
   ];
 }
