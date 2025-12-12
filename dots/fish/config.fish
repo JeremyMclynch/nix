@@ -22,6 +22,7 @@ if status is-interactive
     abbr cdhome 'cd ~/nix/home/jeremy/'
     abbr vipkg 'nvim ~/nix/home/jeremy/packages.nix'
     abbr vihost 'nvim ~/nix/hosts/laptop/default.nix'
+    abbr vihome 'nvim ~/nix/home/jeremy/common.nix'
     abbr vpn 'openconnect-sso --server vpn.njit.edu -- --backgrouind'
     abbr sshwulver 'ssh jmm277@wulver.njit.edu'
     abbr sshwspr1 'ssh wsprdaemon@njit-bl-1'

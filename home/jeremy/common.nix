@@ -71,6 +71,16 @@
       recursive = true;
       executable = true; # Makes all files in the linked directory executable
     };
+    ".config/qt5ct" = {
+      source = ../../dots/qt;
+      recursive = true;
+      executable = true; # Makes all files in the linked directory executable
+    };
+    ".config/qt6ct" = {
+      source = ../../dots/qt;
+      recursive = true;
+      executable = true; # Makes all files in the linked directory executable
+    };
  };
 
 
