@@ -37,6 +37,9 @@ virtualisation.docker = {
   enable = true;
 };
 
+#environment.systemPackages = with pkgs; [ darkly-qt5 darkly ];
+qt.platformTheme = "qt5ct";
+
 services.openssh.enable = true;
 
 #  virtualisation = {
@@ -60,6 +63,8 @@ services.openssh.enable = true;
     xhost
     docker
     podman
+    darkly-qt5
+    darkly
 
     (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
       pkgs.buildFHSEnv (base // {

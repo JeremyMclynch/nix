@@ -22,8 +22,8 @@
   programs.neovim.enable = true;
   programs.bash.enable = true;
 
-  qt.style.package = with pkgs; [ darkly-qt5 darkly ];
-  qt.platformTheme.name = "qtct";
+  #qt.style.package = with pkgs; [ darkly-qt5 darkly ];
+  #qt.platformTheme.name = "qtct";
  # home.file = {
  #       # Example 1: Symlink a file from your dotfiles directory to a specific location
  #       ".config/my-app/config.conf" = {
