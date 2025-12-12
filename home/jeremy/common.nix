@@ -56,6 +56,21 @@
       recursive = true;
       executable = true; # Makes all files in the linked directory executable
     };
+    ".config/uwsm" = {
+      source = ../../dots/uwsm;
+      recursive = true;
+      executable = true; # Makes all files in the linked directory executable
+    };
+    ".config/starship.toml" = {
+      source = ../../dots/starship.toml;
+      recursive = true;
+      executable = true; # Makes all files in the linked directory executable
+    };
+    ".config/thunar" = {
+      source = ../../dots/thunar;
+      recursive = true;
+      executable = true; # Makes all files in the linked directory executable
+    };
  };
 
 
