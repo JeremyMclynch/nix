@@ -15,11 +15,11 @@
       ];
 
       bind = [
-        "$mod, RETURN, exec, kitty"
-        "$mod, D, exec, wofi --show drun"
-        "$mod, Q, killactive"
-        "$mod, M, exit"
-        "$mod, F, fullscreen"
+       # "$mod, RETURN, exec, kitty"
+       # "$mod, D, exec, wofi --show drun"
+       # "$mod, Q, killactive"
+       # "$mod, M, exit"
+       # "$mod, F, fullscreen"
       ];
     };
   };
