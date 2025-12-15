@@ -12,6 +12,10 @@
     userName = "Jeremy McLynch";
     userEmail = "admin@jmclynch.org";
   };
+  dconf = {
+      enable = true;
+      settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
+    };
  # gtk = {
  #     enable = true;
  #     theme.name = "Adwaita-dark";

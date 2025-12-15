@@ -65,7 +65,8 @@ services.openssh.enable = true;
     podman
     darkly-qt5
     darkly
-
+    adwaita-icon-theme
+    
     (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
       pkgs.buildFHSEnv (base // {
       name = "fhs";

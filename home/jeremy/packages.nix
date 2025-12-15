@@ -85,7 +85,7 @@
     socat
     imagemagick
     curl
-    adw-gtk3
+    #adw-gtk3
     papirus-icon-theme
     kdePackages.qt6ct
     libsForQt5.qt5ct
