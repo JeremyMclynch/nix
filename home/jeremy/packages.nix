@@ -103,5 +103,6 @@
     vscode
     zoom-us
     addwater
+    spotify
   ];
 }
