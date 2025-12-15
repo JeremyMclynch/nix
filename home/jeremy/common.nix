@@ -16,13 +16,17 @@
       enable = true;
       settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
     };
- # gtk = {
- #     enable = true;
- #     theme.name = "Adwaita-dark";
- #     #cursorTheme.name = "Bibata-Modern-Ice";
- #     #iconTheme.name = "GruvboxPlus";
- #     theme.package = pkgs.gnome-themes-extra;
- #   };
+  gtk = {
+      enable = true;
+      #theme.name = "Adwaita";
+      #cursorTheme.name = "Bibata-Modern-Ice";
+      #iconTheme.name = "GruvboxPlus";
+      #theme.package = pkgs.gnome-themes-extra;
+      iconTheme = {
+          package = pkgs.adwaita-icon-theme;
+          name = "Adwaita";
+        };
+    };
 
   programs.neovim.enable = true;
   programs.bash.enable = true;
