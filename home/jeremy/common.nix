@@ -12,12 +12,13 @@
     userName = "Jeremy McLynch";
     userEmail = "admin@jmclynch.org";
   };
-  gtk = {
-      enable = true;
-      theme.name = "adw.gtk3";
-      cursorTheme.name = "Bibata-Modern-Ice";
-      iconTheme.name = "GruvboxPlus";
-    };
+ # gtk = {
+ #     enable = true;
+ #     theme.name = "Adwaita-dark";
+ #     #cursorTheme.name = "Bibata-Modern-Ice";
+ #     #iconTheme.name = "GruvboxPlus";
+ #     theme.package = pkgs.gnome-themes-extra;
+ #   };
 
   programs.neovim.enable = true;
   programs.bash.enable = true;
