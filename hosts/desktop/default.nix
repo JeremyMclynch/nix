@@ -48,6 +48,10 @@ services.udev = {
     ];
   };
 
+programs.steam = {
+    enable = true;
+  };
+
 hardware.keyboard.qmk.enable = true;
   # Your original host-level packages (system-wide)
   environment.systemPackages = with pkgs; [
@@ -66,7 +70,6 @@ hardware.keyboard.qmk.enable = true;
     bluetui
     via
     winboat
-    steam
 
     (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
       pkgs.buildFHSEnv (base // {
