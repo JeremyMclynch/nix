@@ -9,6 +9,7 @@ if status is-interactive
     set dotpath /home/jeremy/nix/dots
 
     set sshpath (which ssh)
+    set system (hostname)
 
     # Better ls
     alias ls='eza --icons --group-directories-first -1'
@@ -16,9 +17,15 @@ if status is-interactive
     alias clip='wl-copy'
     alias softboot='systemctl soft-reboot'
 
+    if [ "$system" = nixos-desktop ]
+        set systemname desktop
+    else
+        set systemname = laptop
+    end
+
     # Abbrs
-    abbr rebuild '$dotpath/../scripts/rebuild.sh'
-    abbr rebuild-clean 'sudo nixos-rebuild switch --flake ~/nix/#laptop'
+    abbr rebuild '$dotpath/../scripts/rebuild-$systemname.sh'
+    abbr rebuild-clean 'sudo nixos-rebuild switch --flake ~/nix/#$systemname'
     abbr cdhome 'cd ~/nix/home/jeremy/'
     abbr vipkg 'nvim ~/nix/home/jeremy/packages.nix'
     abbr vihost 'nvim ~/nix/hosts/laptop/default.nix'
