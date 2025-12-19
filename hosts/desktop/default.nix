@@ -65,6 +65,7 @@ hardware.keyboard.qmk.enable = true;
     adwaita-icon-theme
     bluetui
     via
+    winboat
 
     (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
       pkgs.buildFHSEnv (base // {
