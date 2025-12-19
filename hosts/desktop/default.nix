@@ -1,5 +1,5 @@
 
-{ inputs, lib, config, pkgs, ... }:
+{ inputs, lib, options, config, pkgs, ... }:
 
 {
   imports = [
@@ -23,9 +23,21 @@
 
     ../../modules/caelestia/deps.nix
 
+    ../../modules/power/bluetooth.nix
+
   ];
 
+  programs.nix-ld.enable = true;
+  fonts.fontDir.enable = true;
+
   networking.hostName = "nixos-desktop";
+
+  virtualisation.docker = {
+  enable = true;
+  };
+  qt.platformTheme = "qt5ct";
+
+  services.openssh.enable = true;
 
   # Your original host-level packages (system-wide)
   environment.systemPackages = with pkgs; [
@@ -34,6 +46,34 @@
     vivaldi
     git
     quartus-prime-lite
+    debootstrap
+    xhost
+    docker
+    podman
+    darkly-qt5
+    darkly
+    adwaita-icon-theme
+    
+    (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
+      pkgs.buildFHSEnv (base // {
+      name = "fhs";
+      targetPkgs = pkgs:
+        # pkgs.buildFHSEnv provides only a minimal FHS environment,
+        # lacking many basic packages needed by most software.
+        # Therefore, we need to add them manually.
+        #
+        # pkgs.appimageTools provides basic packages required by most software.
+        (base.targetPkgs pkgs) ++ (with pkgs; [
+          pkg-config
+          ncurses
+          # Feel free to add more packages here if needed.
+        ]
+      );
+      profile = "export FHS=1";
+      runScript = "bash";
+      extraOutputsToInstall = ["dev"];
+    }))
+
   ];
 
   system.stateVersion = "25.11";
