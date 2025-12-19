@@ -92,6 +92,10 @@
       recursive = true;
       executable = true; # Makes all files in the linked directory executable
     };
+    "Pictures/Wallpapers" = {
+        source = ../../Wallpapers;
+        recursive = true;
+    };
  };
 
 
