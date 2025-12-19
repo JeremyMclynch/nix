@@ -54,7 +54,8 @@
     darkly
     adwaita-icon-theme
     bluetui
-    
+    chromium
+
     (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
       pkgs.buildFHSEnv (base // {
       name = "fhs";
