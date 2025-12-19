@@ -66,6 +66,7 @@ hardware.keyboard.qmk.enable = true;
     bluetui
     via
     winboat
+    steam
 
     (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
       pkgs.buildFHSEnv (base // {
