@@ -63,6 +63,7 @@ services.udev = {
     darkly
     adwaita-icon-theme
     bluetui
+    via
 
     (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
       pkgs.buildFHSEnv (base // {
