@@ -39,6 +39,15 @@
 
   services.openssh.enable = true;
 
+services.udev = {
+    packages = with pkgs; [
+      qmk
+      qmk-udev-rules
+      qmk_hid
+      via
+    ];
+  };
+
   # Your original host-level packages (system-wide)
   environment.systemPackages = with pkgs; [
     wget
@@ -54,7 +63,6 @@
     darkly
     adwaita-icon-theme
     bluetui
-    via
 
     (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
       pkgs.buildFHSEnv (base // {
