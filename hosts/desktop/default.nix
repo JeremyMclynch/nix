@@ -48,6 +48,7 @@ services.udev = {
     ];
   };
 
+hardware.keyboard.qmk.enable = true;
   # Your original host-level packages (system-wide)
   environment.systemPackages = with pkgs; [
     wget
