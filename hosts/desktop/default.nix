@@ -53,6 +53,7 @@
     darkly-qt5
     darkly
     adwaita-icon-theme
+    bluetui
     
     (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
       pkgs.buildFHSEnv (base // {
