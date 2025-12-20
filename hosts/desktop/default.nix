@@ -51,8 +51,13 @@ services.udev = {
 programs.steam = {
     enable = true;
   };
-
-hardware.keyboard.qmk.enable = true;
+  hardware = {
+      graphics = {
+          enable = true;
+          enable32Bit = true;
+        };
+      keyboard.qmk.enable = true;
+    };
   # Your original host-level packages (system-wide)
   environment.systemPackages = with pkgs; [
     wget
