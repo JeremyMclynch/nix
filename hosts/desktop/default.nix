@@ -52,16 +52,16 @@ programs.steam = {
     enable = true;
   };
   hardware = {
-      graphics = {
-          enable = true;
-          enable32Bit = true;
-        };
+      #graphics = {
+      #    enable = true;
+      #    enable32Bit = true;
+      #  };
       keyboard.qmk.enable = true;
     };
-  boot.kernelParams = [
-    "video=DP-1:2560x1440@240"
-    "video=DP-2:2560x1440@180"
-  ];
+  #boot.kernelParams = [
+  #  "video=DP-1:2560x1440@240"
+  #  "video=DP-2:2560x1440@180"
+  #];
   # Your original host-level packages (system-wide)
   environment.systemPackages = with pkgs; [
     wget
