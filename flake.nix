@@ -23,7 +23,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, caelestiaShell, caelestiaCli, ... }@inputs:
     let
       lib = nixpkgs.lib;
 

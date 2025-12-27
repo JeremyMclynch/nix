@@ -31,6 +31,28 @@
   programs.neovim.enable = true;
   programs.bash.enable = true;
 
+#  programs.caelestia = {
+#      enable = true;
+#      settings = {
+#          idle = {
+#              lockBeforeSleep = true;
+#              inhibitWhenAudio = true;
+#
+#              timeouts = [
+#              {
+#                  timeout = 180;
+#                  idleAction = "lock";
+#                }
+#                {
+#                    timout = 300;
+#                    idleAction = "dpms off";
+#                    returnAction = "dpms on";
+#                  }
+#              ];
+#            };
+#        };
+#    };
+
   #qt.style.package = with pkgs; [ darkly-qt5 darkly ];
   #qt.platformTheme.name = "qtct";
  # home.file = {
