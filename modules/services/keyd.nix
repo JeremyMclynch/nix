@@ -8,7 +8,7 @@
       settings = {
         main = {
           capslock = "overload(control,escape)";
-          "f23+leftshift+leftmeta" = "oneshot(capslock)";
+          "f23+leftshift+leftmeta" = "layer(capslock)";
         };
         otherlayer = { };
       };
