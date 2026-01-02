@@ -31,6 +31,20 @@
   programs.neovim.enable = true;
   programs.bash.enable = true;
 
+programs.vesktop = {
+    enable = true;
+
+    vencord.settings = {
+      autoUpdate = true;
+      autoUpdateNotification = true;
+      notifyAboutUpdates = true;
+
+      plugins = {
+        ClearURLs.enabled = true;
+        FixYoutubeEmbeds.enabled = true;
+      };
+    };
+  };
 #  programs.caelestia = {
 #      enable = true;
 #      settings = {
