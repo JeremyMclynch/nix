@@ -53,10 +53,10 @@ programs.steam = {
     enable = true;
   };
   hardware = {
-      #graphics = {
-      #    enable = true;
-      #    enable32Bit = true;
-      #  };
+      graphics = {
+          enable = true;
+          enable32Bit = true;
+        };
       keyboard.qmk.enable = true;
     };
   #boot.kernelParams = [
