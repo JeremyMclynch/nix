@@ -24,6 +24,7 @@
     ../../modules/caelestia/deps.nix
 
     ../../modules/power/bluetooth.nix
+    ../../modules/noctalia/noctalia.nix
   ];
 
   networking.hostName = "nixos-laptop";
@@ -41,7 +42,7 @@ virtualisation.docker = {
 qt.platformTheme = "qt5ct";
 
 services.openssh.enable = true;
-
+services.upower.enable = true;
 #  virtualisation = {
 #  containers.enable = true;
 #  #docker.enable = true;
