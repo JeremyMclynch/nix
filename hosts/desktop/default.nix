@@ -24,7 +24,7 @@
     ../../modules/caelestia/deps.nix
 
     ../../modules/power/bluetooth.nix
-
+    ../../modules/noctalia/noctalia.nix
   ];
 
   programs.nix-ld.enable = true;
@@ -38,6 +38,7 @@
   qt.platformTheme = "qt5ct";
 
   services.openssh.enable = true;
+  services.upower.enable = true;
 
 services.udev = {
     packages = with pkgs; [
