@@ -103,5 +103,6 @@
     zoom-us
     addwater
     spotify
+    rpi-imager
   ];
 }
