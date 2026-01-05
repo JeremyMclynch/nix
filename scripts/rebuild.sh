@@ -8,7 +8,7 @@ fi
 # cd to your config dir
 pushd ~/nix/
 
-# Early return if no changes were detected (thanks @singiamtel!)
+# Early return if no changes were detected
 if [ -z "$(git diff)" ] && [ "$(git pull)" = "Already up to date." ]; then
   echo "No changes detected, exiting."
   popd
