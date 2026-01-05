@@ -104,5 +104,6 @@
     addwater
     spotify
     rpi-imager
+    rpiboot
   ];
 }
