@@ -106,5 +106,7 @@
     rpi-imager
     rpiboot
     openconnect
+    flatpak
+    gnome-software
   ];
 }
