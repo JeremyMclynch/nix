@@ -16,10 +16,13 @@
     };
     vpn = rec {
       gateway = "vpn.njit.edu";
+      remote = gateway;
+      username = "jmm277@njit.edu";
       service-type = "org.freedesktop.NetworkManager.openconnect";
       protocol = "anyconnect";
       useragent = "AnyConnect"; # Or other user-agent if required
       authtype = "password";
+
       # Optionally, add settings for cookies if needed for web-based prompts
       # cookie = "some_cookie_value";
     };
