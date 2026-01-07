@@ -92,6 +92,7 @@ programs.steam = {
     gamescope-wsi
     networkmanager-openconnect
     webkitgtk_4_1
+    libnma-gtk4
 
     (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
       pkgs.buildFHSEnv (base // {
