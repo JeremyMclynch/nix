@@ -105,5 +105,6 @@
     spotify
     rpi-imager
     rpiboot
+    openconnect
   ];
 }
