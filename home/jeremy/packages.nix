@@ -100,7 +100,7 @@
     obsidian
     remmina
     vscode
-    zoom-us
+    #zoom-us
     addwater
     spotify
     rpi-imager
