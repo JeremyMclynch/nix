@@ -1,7 +1,30 @@
 
 { ... }:
 {
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+    enable = true;
+    plugins = [
+    ];
+  };
+
+  networking.networkmanager.ensureProfiles = {
+  profiles.myVpn = {
+    connection = {
+      id = "NJIT_VPN";
+      type = "vpn";
+    };
+    vpn = rec {
+      gateway = "vpn.njit.edu";
+      service-type = "org.freedesktop.NetworkManager.openconnect";
+      protocol = "anyconnect";
+      useragent = "AnyConnect"; # Or other user-agent if required
+      authtype = "password";
+      # Optionally, add settings for cookies if needed for web-based prompts
+      # cookie = "some_cookie_value";
+    };
+  };
+};
+
 
   networking.nameservers = [
     "1.1.1.1#one.one.one.one"
