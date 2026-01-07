@@ -91,6 +91,7 @@ programs.steam = {
     winboat
     gamescope-wsi
     networkmanager-openconnect
+    webkitgtk_6_0
 
     (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
       pkgs.buildFHSEnv (base // {
