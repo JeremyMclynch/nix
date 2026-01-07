@@ -108,5 +108,6 @@
     openconnect
     flatpak
     gnome-software
+    warehouse
   ];
 }
