@@ -54,6 +54,8 @@ services.udev = {
       #GDK_DPI_SCALE = "0.5";
     };
 
+services.flatpak.enable = true;
+
 programs.steam = {
     enable = true;
   };
