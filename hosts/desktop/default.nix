@@ -57,6 +57,10 @@ services.udev = {
 programs.steam = {
     enable = true;
   };
+  programs.gamescope = {
+  enable = true;
+  capSysNice = false;
+};
   hardware = {
       graphics = {
           enable = true;
@@ -85,6 +89,7 @@ programs.steam = {
     bluetui
     via
     winboat
+    gamescope-wsi
 
     (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
       pkgs.buildFHSEnv (base // {
