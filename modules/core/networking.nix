@@ -1,9 +1,10 @@
 
-{ ... }:
+{ pkgs, ... }:
 {
   networking.networkmanager = {
     enable = true;
-    plugins = [
+    plugins = with pkgs; [
+    networkmanager-openconnect
     ];
   };
 
