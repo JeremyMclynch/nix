@@ -109,5 +109,6 @@
     flatpak
     gnome-software
     warehouse
+    jetbrains-toolbox
   ];
 }
