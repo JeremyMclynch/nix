@@ -95,6 +95,7 @@ programs.steam = {
     networkmanager-openconnect
     webkitgtk_4_1
     libnma-gtk4
+    python314
 
     (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
       pkgs.buildFHSEnv (base // {
