@@ -109,6 +109,7 @@
     flatpak
     gnome-software
     warehouse
+    ani-cli
     jetbrains-toolbox
   ];
 }
