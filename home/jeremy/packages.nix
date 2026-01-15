@@ -110,6 +110,7 @@
     gnome-software
     warehouse
     ani-cli
+    mpv
     jetbrains-toolbox
   ];
 }
