@@ -16,6 +16,7 @@ if status is-interactive
     alias ssh='TERM=xterm-256color $sshpath'
     alias clip='wl-copy'
     alias softboot='systemctl soft-reboot'
+    alias rebuild='$dotpath/../scripts/rebuild.sh $systemname'
 
     if [ "$system" = nixos-desktop ]
         set systemname desktop
@@ -24,7 +25,6 @@ if status is-interactive
     end
 
     # Abbrs
-    abbr rebuild '$dotpath/../scripts/rebuild.sh $systemname'
     abbr rebuild-clean 'sudo nixos-rebuild switch --flake ~/nix/#$systemname'
     abbr cdhome 'cd ~/nix/home/jeremy/'
     abbr vipkg 'nvim ~/nix/home/jeremy/packages.nix'
