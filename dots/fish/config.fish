@@ -37,7 +37,7 @@ if status is-interactive
     abbr sshd 'ssh jeremy@archdesktop'
     abbr viconf 'nvim $dotpath/hypr/hyprland.conf'
     abbr vivar 'nvim $dotpath/hypr/variables.conf'
-    abbr vibind 'nvim $dotpath/hypr/hyprland/keybinds.conf'
+    abbr vibind 'nvim $dotpath/hypr/hyprland/keybinds-noctalia.conf'
     abbr vivar 'nvim $dotpath/hypr/variables.conf'
     abbr cdh 'cd $dotpath/hypr/hyprland/'
     abbr vifish 'nvim $dotpath/fish/config.fish'
