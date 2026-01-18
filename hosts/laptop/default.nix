@@ -37,6 +37,7 @@
 virtualisation.docker = {
   enable = true;
 };
+hardware.enableAllFirmware = true;
 
 environment.variables = {
       GDK_SCALE = "1.6";
