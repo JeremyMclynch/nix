@@ -45,7 +45,7 @@ hardware.enableRedistributableFirmware = true;
     sof-firmware
   ];
 
-environment.variables = {
+environment.sessionVariables = {
       GDK_SCALE = "1.6";
       #GDK_DPI_SCALE = "0.5";
     };
