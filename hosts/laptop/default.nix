@@ -60,6 +60,7 @@ services.flatpak.enable = true;
 #};
 
 
+
   environment.systemPackages = with pkgs; [
     wget
     neovim
@@ -73,6 +74,9 @@ services.flatpak.enable = true;
     darkly-qt5
     darkly
     adwaita-icon-theme
+    alsa-utils
+    sof-firmware
+    alsa-ucm-conf
     
     (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
       pkgs.buildFHSEnv (base // {
