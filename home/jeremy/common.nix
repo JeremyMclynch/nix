@@ -132,6 +132,10 @@ programs.vesktop = {
         source = ../../Wallpapers;
         recursive = true;
     };
+    ".local/state/caelestia" = {
+        source = ../../dots/caelestia/state/caelestia;
+        recursive = true;
+    };
  };
 
 
