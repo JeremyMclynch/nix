@@ -83,6 +83,7 @@ services.flatpak.enable = true;
     alsa-utils
     sof-firmware
     alsa-ucm-conf
+    zoom-us
     
     (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
       pkgs.buildFHSEnv (base // {
