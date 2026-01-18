@@ -85,6 +85,7 @@ services.flatpak.enable = true;
     alsa-ucm-conf
     #zoom-us
     networkmanagerapplet
+    networkmanager-openconnect
     
     (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
       pkgs.buildFHSEnv (base // {
