@@ -38,7 +38,11 @@ virtualisation.docker = {
   enable = true;
 };
 hardware.enableAllFirmware = true;
-
+hardware.enableRedistributableFirmware = true;
+hardware.firmware = with pkgs; [
+  linux-firmware
+  sof-firmware
+];
 environment.variables = {
       GDK_SCALE = "1.6";
       #GDK_DPI_SCALE = "0.5";
