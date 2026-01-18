@@ -1,6 +1,23 @@
 
 { inputs, lib, options, config, pkgs, ... }:
 
+let
+  cirrusFw = pkgs.stdenvNoCC.mkDerivation {
+    pname = "cirrus-linux-firmware";
+    version = "git";
+    src = pkgs.fetchFromGitHub {
+      owner = "CirrusLogic";
+      repo = "linux-firmware";
+      rev = "main";
+      sha256 = "sha256-u7gXdWvR79+hVDGC/3/lXv+LiI6M4yM0pFM7erNu28E=";
+    };
+    installPhase = ''
+      mkdir -p $out/lib/firmware
+      # repo contains a "cirrus" directory with the blobs
+      cp -r cirrus $out/lib/firmware/
+    '';
+  };
+in
 {
   imports = [
     ./hardware-configuration.nix
@@ -39,10 +56,13 @@ virtualisation.docker = {
 };
 hardware.enableAllFirmware = true;
 hardware.enableRedistributableFirmware = true;
-hardware.firmware = with pkgs; [
-  linux-firmware
-  sof-firmware
-];
+
+  hardware.firmware = with pkgs; [
+    linux-firmware
+    sof-firmware
+    cirrusFw
+  ];
+
 environment.variables = {
       GDK_SCALE = "1.6";
       #GDK_DPI_SCALE = "0.5";
