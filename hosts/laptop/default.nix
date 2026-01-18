@@ -38,6 +38,10 @@ virtualisation.docker = {
   enable = true;
 };
 
+environment.variables = {
+      GDK_SCALE = "1.6";
+      #GDK_DPI_SCALE = "0.5";
+    };
 #environment.systemPackages = with pkgs; [ darkly-qt5 darkly ];
 qt.platformTheme = "qt5ct";
 
