@@ -112,5 +112,6 @@
     ani-cli
     mpv
     jetbrains-toolbox
+    hyprshot
   ];
 }
