@@ -43,6 +43,7 @@ qt.platformTheme = "qt5ct";
 
 services.openssh.enable = true;
 services.upower.enable = true;
+services.flatpak.enable = true;
 #  virtualisation = {
 #  containers.enable = true;
 #  #docker.enable = true;
