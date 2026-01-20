@@ -1,11 +1,9 @@
-
 { inputs, lib, options, config, pkgs, ... }:
 
 {
   imports = [
     ./hardware-configuration.nix
     ../../roles/laptop.nix
-
 
     ../../modules/core/boot.nix
     ../../modules/core/networking.nix
@@ -78,6 +76,7 @@ services.flatpak.enable = true;
       }
     )
   ];
+
 
 
 

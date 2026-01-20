@@ -25,11 +25,19 @@
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+#     nix-matlab = {
+#       url = "gitlab:doronbehar/nix-matlab";
+#       inputs.nixpkgs.follows = "nixpkgs";
+#  };
+
   };
 
-  outputs = { self, nixpkgs, home-manager, caelestiaShell, caelestiaCli, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, caelestiaShell, caelestiaCli,  ... }@inputs:
     let
       lib = nixpkgs.lib;
+#      flake-overlays = [
+#        nix-matlab.overlay
+#        ];
 
       mkHost =
         { name
