@@ -101,6 +101,7 @@ services.flatpak.enable = true;
     networkmanagerapplet
     networkmanager-openconnect
     matlab
+    debootstrap
     
     (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
       pkgs.buildFHSEnv (base // {
