@@ -26,6 +26,10 @@
       # Optionally, add settings for cookies if needed for web-based prompts
       # cookie = "some_cookie_value";
     };
+    ipv4 = {
+        dns-search = "~njit.edu;njit.edu";
+        dns-priority = 50;
+      };
   };
 };
 
@@ -37,12 +41,15 @@
 
   services.resolved = {
     enable = true;
-    dnssec = "false";
-  #  domains = [ "~." ];
+    dnssec = "allow-downgrade";
+   # dns = [
+   #   "1.1.1.1#one.one.one.one"
+   #   "1.0.0.1#one.one.one.one"
+   # ];
     fallbackDns = [
       "1.1.1.1#one.one.one.one"
       "1.0.0.1#one.one.one.one"
     ];
-    dnsovertls = "false";
+    dnsovertls = "opportunistic";
   };
 }
