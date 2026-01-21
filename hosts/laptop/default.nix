@@ -1,11 +1,9 @@
-
 { inputs, lib, options, config, pkgs, ... }:
 
 {
   imports = [
     ./hardware-configuration.nix
     ../../roles/laptop.nix
-
 
     ../../modules/core/boot.nix
     ../../modules/core/networking.nix
@@ -64,6 +62,22 @@ services.flatpak.enable = true;
 #    defaultNetwork.settings.dns_enabled = true; # Required for containers under podman-compose to be able to talk to each other.
 #  };
 #};
+ nixpkgs.overlays = let
+    nix-matlab = import (builtins.fetchTarball {
+      url = "https://gitlab.com/doronbehar/nix-matlab/-/archive/master/nix-matlab-master.tar.gz";
+      sha256 = "sha256:1hdbzzp13rgj5f1idx0jl6c9ir444jf23msa6vqcqg16q5a788dx";
+        }
+      );
+  in [
+    nix-matlab.overlay
+    (
+      final: prev: {
+        # Your own overlays...
+      }
+    )
+  ];
+
+
 
 
 
@@ -86,6 +100,8 @@ services.flatpak.enable = true;
     #zoom-us
     networkmanagerapplet
     networkmanager-openconnect
+    matlab
+    debootstrap
     
     (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
       pkgs.buildFHSEnv (base // {
