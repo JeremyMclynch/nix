@@ -27,6 +27,7 @@
       # cookie = "some_cookie_value";
     };
     ipv4 = {
+        method = "auto";
         dns-search = "~njit.edu;njit.edu";
         dns-priority = 50;
       };
