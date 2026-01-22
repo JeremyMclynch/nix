@@ -98,6 +98,7 @@ programs.steam = {
     python314
     networkmanagerapplet
     debootstrap
+    apptainer
 
     (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
       pkgs.buildFHSEnv (base // {
