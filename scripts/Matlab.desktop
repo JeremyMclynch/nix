@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=MATLAB (Container)
+Comment=Run MATLAB R2025b inside systemd-nspawn container
+Exec=/home/jeremy/.bin/matlab
+Icon=matlab
+Terminal=false
+Categories=Development;Science;Education;
+StartupNotify=true
+
