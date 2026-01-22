@@ -139,9 +139,6 @@ programs.vesktop = {
     ".local/share/applications/Matlab.desktop" = {
         source = ../../scripts/Matlab.desktop;
       };
-    "Documents/MATLAB/startup.m" = {
-        source = ../../scripts/startup.m;
-      };
  };
 
 
