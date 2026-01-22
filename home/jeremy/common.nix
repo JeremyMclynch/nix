@@ -143,6 +143,9 @@ programs.vesktop = {
         source = ../../scripts/matlab.sh;
         executable = true;
       };
+    "Documents/MATLAB/startup.m" = {
+        source = ../../scripts/startup.m;
+      };
  };
 
 
