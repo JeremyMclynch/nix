@@ -113,5 +113,6 @@
     mpv
     jetbrains-toolbox
     hyprshot
+    hyprpolkitagent
   ];
 }
