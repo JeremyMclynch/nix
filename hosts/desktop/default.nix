@@ -97,6 +97,7 @@ programs.steam = {
     libnma-gtk4
     python314
     networkmanagerapplet
+    debootstrap
 
     (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
       pkgs.buildFHSEnv (base // {
