@@ -136,6 +136,13 @@ programs.vesktop = {
         source = ../../dots/caelestia/state/caelestia;
         recursive = true;
     };
+    ".local/share/applications/Matlab.desktop" = {
+        source = ../../scripts/Matlab.desktop;
+      };
+    ".bin/matlab" = {
+        source = ../../scripts/matlab.sh;
+        executable = true;
+      };
  };
 
 
