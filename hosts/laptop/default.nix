@@ -84,6 +84,7 @@ services.flatpak.enable = true;
     alsa-utils
     sof-firmware
     alsa-ucm-conf
+    bluetui
     #zoom-us
     networkmanagerapplet
     networkmanager-openconnect
