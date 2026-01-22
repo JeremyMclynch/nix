@@ -10,6 +10,7 @@ if status is-interactive
 
     set sshpath (which ssh)
     set system (hostname)
+    set PATH $PATH:/home/jeremy/.bin
 
     # Better ls
     alias ls='eza --icons --group-directories-first -1'
