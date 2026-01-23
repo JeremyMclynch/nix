@@ -103,6 +103,7 @@ programs.gamescope = {
     debootstrap
     apptainer
     lutris
+    protonplus
 
     (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
       pkgs.buildFHSEnv (base // {
