@@ -102,6 +102,7 @@ programs.gamescope = {
     networkmanagerapplet
     debootstrap
     apptainer
+    lutris
 
     (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
       pkgs.buildFHSEnv (base // {
