@@ -58,8 +58,11 @@ services.flatpak.enable = true;
 
 programs.steam = {
     enable = true;
+    extraCompatPackages = with pkgs; [
+      proton-ge-bin
+    ];
   };
-  programs.gamescope = {
+programs.gamescope = {
   enable = true;
   capSysNice = false;
 };
