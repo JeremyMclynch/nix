@@ -111,6 +111,7 @@
     warehouse
     ani-cli
     mpv
+    gimp
     jetbrains-toolbox
     hyprshot
     hyprpolkitagent
