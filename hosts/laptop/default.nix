@@ -86,6 +86,7 @@ services.flatpak.enable = true;
     alsa-ucm-conf
     bluetui
     #zoom-us
+    jetbrains.dataspell
     networkmanagerapplet
     networkmanager-openconnect
     debootstrap
