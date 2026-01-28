@@ -87,6 +87,8 @@ services.flatpak.enable = true;
     bluetui
     #zoom-us
     jetbrains.dataspell
+    python314
+    #python314Packages.conda
     networkmanagerapplet
     networkmanager-openconnect
     debootstrap
