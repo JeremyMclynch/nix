@@ -115,5 +115,8 @@
     jetbrains-toolbox
     hyprshot
     hyprpolkitagent
+    doxx
+    xleak
+    tabiew
   ];
 }
