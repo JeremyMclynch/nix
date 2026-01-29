@@ -118,5 +118,6 @@
     doxx
     xleak
     tabiew
+    visidata
   ];
 }
