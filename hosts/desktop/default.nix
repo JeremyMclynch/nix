@@ -40,6 +40,11 @@
   services.openssh.enable = true;
   services.upower.enable = true;
 
+  systemd.targets.sleep.enable = false;
+  systemd.targets.suspend.enable = false;
+  systemd.targets.hibernate.enable = false;
+  systemd.targets.hybrid-sleep.enable = false;
+
 
 # Use the GNOME Wayland session
 services.xserver.enable = true;
