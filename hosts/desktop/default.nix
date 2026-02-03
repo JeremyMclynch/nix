@@ -50,7 +50,7 @@
 services.xserver.enable = true;
 services.xserver.desktopManager.xfce.enable = true;
 services.xrdp.enable = true;
-services.xrdp.defaultWindowManager = "startlxqt";
+services.xrdp.defaultWindowManager = "startxfce4";
 # Open the default RDP port (3389)
 services.xrdp.openFirewall = true;
 
