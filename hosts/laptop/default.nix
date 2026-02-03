@@ -68,6 +68,7 @@ services.flatpak.enable = true;
 
 
 
+
   environment.systemPackages = with pkgs; [
     wget
     neovim

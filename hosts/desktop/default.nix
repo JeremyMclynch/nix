@@ -48,7 +48,7 @@
 
 # Use the GNOME Wayland session
 services.xserver.enable = true;
-services.xserver.desktopManager.lxqt.enable = true;
+services.xserver.desktopManager.xfce.enable = true;
 services.xrdp.enable = true;
 services.xrdp.defaultWindowManager = "startlxqt";
 # Open the default RDP port (3389)
