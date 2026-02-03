@@ -88,6 +88,8 @@ services.flatpak.enable = true;
     #zoom-us
     jetbrains.dataspell
     python314
+    platformio-core
+    platformio
     networkmanagerapplet
     networkmanager-openconnect
     debootstrap
