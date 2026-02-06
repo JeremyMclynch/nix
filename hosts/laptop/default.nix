@@ -46,6 +46,7 @@ hardware.enableRedistributableFirmware = true;
 environment.sessionVariables = {
       GDK_SCALE = "1.6";
       #GDK_DPI_SCALE = "0.5";
+      QT_QPA_PLATFORMTHEME="qt5ct";
     };
 #environment.systemPackages = with pkgs; [ darkly-qt5 darkly ];
 qt.platformTheme = "qt5ct";
