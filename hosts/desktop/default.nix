@@ -37,7 +37,10 @@
   };
   qt.platformTheme = "qt5ct";
 
-  services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
+    forwardX11 = true;
+  };
   services.upower.enable = true;
 
   systemd.targets.sleep.enable = false;
