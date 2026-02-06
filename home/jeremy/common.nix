@@ -29,8 +29,12 @@
     };
 
   programs.neovim.enable = true;
-  programs.bash.enable = true;
-
+  programs.bash = {
+    enable = true;
+    initExtra = ''
+    eval -- "$(/etc/profiles/per-user/jeremy/bin/starship init bash --print-full-init)"
+    '';
+    };
 programs.vesktop = {
     enable = true;
 
