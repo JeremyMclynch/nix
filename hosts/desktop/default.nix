@@ -121,6 +121,7 @@ programs.gamescope = {
     debootstrap
     apptainer
     lutris
+    sysstat
 
     (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
       pkgs.buildFHSEnv (base // {
