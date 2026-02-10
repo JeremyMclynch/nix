@@ -57,6 +57,7 @@ services.xrdp.defaultWindowManager = "startxfce4";
 # Open the default RDP port (3389)
 services.xrdp.openFirewall = true;
 
+services.sysstat.enable = true;
 
 services.udev = {
     packages = with pkgs; [
