@@ -9,7 +9,7 @@ fi
 pushd ~/nix/
 
 # Early return if no changes were detected
-if [ -z "$(git diff)" ] && [ "$(git pull)" = "Already up to date." ]; then
+if [ -z "$(git diff)" ] && [ "$(git pull)" = "Already up to date." ] && [ "$2" != "force" ]; then
   echo "No changes detected, exiting."
   popd
   exit 0
