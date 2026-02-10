@@ -33,6 +33,11 @@
     enable = true;
     initExtra = ''
     eval -- "$(/etc/profiles/per-user/jeremy/bin/starship init bash --print-full-init)"
+    if [ "$(hostname)" == "nixos-desktop" ]; then
+      export systemname="desktop"
+    else
+      export systemname="laptop"
+    fi
     '';
     };
 programs.vesktop = {
