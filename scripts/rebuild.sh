@@ -21,7 +21,11 @@ git diff -U0
 echo "NixOS Rebuilding..."
 
 # Rebuild, output simplified errors, log trackebacks
-sudo nixos-rebuild switch --flake ~/nix/#"$1" &>nixos-switch.log || (cat nixos-switch.log | grep --color error && exit 1)
+if [ "$3" == "pkexec" ]; then
+  pkexec nixos-rebuild switch --flake ~/nix/#"$1" &>nixos-switch.log || (cat nixos-switch.log | grep --color error && exit 1)
+else
+  sudo nixos-rebuild switch --flake ~/nix/#"$1" &>nixos-switch.log || (cat nixos-switch.log | grep --color error && exit 1)
+fi
 
 # Get current generation metadata
 current=$(nixos-rebuild list-generations | grep True)

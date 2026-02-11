@@ -79,7 +79,6 @@ services.flatpak.enable = true;
     debootstrap
     xhost
     docker
-    podman
     darkly-qt5
     darkly
     adwaita-icon-theme
