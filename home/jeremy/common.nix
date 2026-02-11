@@ -137,6 +137,11 @@ programs.vesktop = {
       recursive = true;
       executable = true; # Makes all files in the linked directory executable
     };
+   # ".config/wofi" = {
+   #   source = ../../dots/wofi;
+   #   recursive = true;
+   #   executable = true;
+   #   };
     "Pictures/Wallpapers" = {
         source = ../../Wallpapers;
         recursive = true;
