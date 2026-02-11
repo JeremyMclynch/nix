@@ -66,10 +66,6 @@ services.flatpak.enable = true;
  
 
 
-nixpkgs.config.permittedInsecurePackages = [
-  "segger-jlink-qt4-874"
-];
- nixpkgs.config.segger-jlink.acceptLicense = true;
 
 
   environment.systemPackages = with pkgs; [
@@ -96,7 +92,7 @@ nixpkgs.config.permittedInsecurePackages = [
     networkmanager-openconnect
     debootstrap
     wofi
-    segger-jlink
+
     (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
       pkgs.buildFHSEnv (base // {
       name = "fhs";
