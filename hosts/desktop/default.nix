@@ -122,6 +122,7 @@ programs.gamescope = {
     debootstrap
     apptainer
     lutris
+    wofi
 
     (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
       pkgs.buildFHSEnv (base // {
