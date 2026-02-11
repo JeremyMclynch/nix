@@ -23,7 +23,12 @@ for i in "${!DISPLAY_NAMES[@]}"; do
   if [[ "$CHOICE" != "exit" && "${DISPLAY_NAMES[i]}" == "$CHOICE" ]]; then
     git pull
     eval "${COMMANDS[i]}"
-    foot -e --title='rebuild' ../scripts/rebuild.sh "${systemname}"
+    if git diff --exit-code; then
+      notify-send -e "No changes detected, exiting..." --icon=software-update-available-symbolic
+      break
+    else
+      foot -e --title='rebuild' ../scripts/rebuild.sh "${systemname}"
+    fi
     break
   fi
 done
