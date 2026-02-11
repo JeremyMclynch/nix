@@ -18,6 +18,7 @@ if status is-interactive
     alias clip='wl-copy'
     alias softboot='systemctl soft-reboot'
     alias rebuild='$dotpath/../scripts/rebuild.sh $systemname'
+    alias nix='cd ~/nix && git pull'
 
     if [ "$system" = nixos-desktop ]
         set systemname desktop
