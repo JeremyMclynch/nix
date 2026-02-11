@@ -39,11 +39,11 @@ sudo nixos-rebuild switch --flake ~/nix/#"$1" &>nixos-switch.log || (cat nixos-s
 current=$(nixos-rebuild list-generations | grep True)
 
 # Commit all changes witih the generation metadata
-git commit -am "$current" || (notify-send -e "NixOS Rebult, Git did not generate commit." && read -n 1 -s -r -p "Press any key to continue..." _ && exit 1)
+git commit -am "$current" || (notify-send -e "NixOS Rebult, Git did not generate commit." --icon=software-update-available-symbolic && read -n 1 -s -r -p "Press any key to continue..." _ && exit 1)
 
-git push origin main || (notify-send -e "NixOS Rebult, Git did not push to orgin main." && read -n 1 -s -r -p "Press any key to continue..." _ && exit 1)
+git push origin main || (notify-send -e "NixOS Rebult, Git did not push to orgin main." --icon=software-update-available-symbolic && read -n 1 -s -r -p "Press any key to continue..." _ && exit 1)
 # Back to where you were
 popd
 
 # Notify all OK!
-notify-send -e "NixOS Rebuilt OK!" --icon=software-update-available
+notify-send -e "NixOS Rebuilt OK!" --icon=software-update-available-symbolic
