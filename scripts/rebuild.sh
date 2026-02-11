@@ -3,6 +3,7 @@ set -e
 
 if [ -z "$1" ]; then
   echo "No Argument given, exiting..."
+  sleep 1
   exit 1
 fi
 # cd to your config dir
@@ -11,6 +12,7 @@ pushd ~/nix/
 # Early return if no changes were detected
 if [ -z "$(git diff)" ] && [ "$(git pull)" = "Already up to date." ] && [ "$2" != "force" ]; then
   echo "No changes detected, exiting."
+  sleep 1
   popd
   exit 0
 fi
@@ -21,8 +23,9 @@ git diff -U0
 echo "NixOS Rebuilding..."
 
 # Rebuild, output simplified errors, log trackebacks
-if [ "$3" == "pkexec" ]; then
-  pkexec nixos-rebuild switch --flake ~/nix/#"$1" &>nixos-switch.log || (cat nixos-switch.log | grep --color error && exit 1)
+if [ "$2" == "pkexec" ]; then
+  pkexec --user jeremy nixos-rebuild switch --flake ~/nix/#"$1" &>nixos-switch.log || (cat nixos-switch.log | grep --color error &&
+    read -n 1 -s -r -p "Press any key to continue..." _ && exit 1)
 else
   sudo nixos-rebuild switch --flake ~/nix/#"$1" &>nixos-switch.log || (cat nixos-switch.log | grep --color error && exit 1)
 fi
@@ -31,8 +34,9 @@ fi
 current=$(nixos-rebuild list-generations | grep True)
 
 # Commit all changes witih the generation metadata
-git commit -am "$current"
-git push origin main || notify-send -e "NixOS Rebult, Git did not push to orgin main."
+git commit -am "$current" || (notify-send -e "NixOS Rebult, Git did not generate commit." && read -n 1 -s -r -p "Press any key to continue..." _ && exit 1)
+
+git push origin main || (notify-send -e "NixOS Rebult, Git did not push to orgin main." && read -n 1 -s -r -p "Press any key to continue..." _ && exit 1)
 # Back to where you were
 popd
 

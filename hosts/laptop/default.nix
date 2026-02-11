@@ -86,7 +86,6 @@ services.flatpak.enable = true;
     sof-firmware
     alsa-ucm-conf
     bluetui
-    #zoom-us
     jetbrains.dataspell
     python314
     platformio-core
