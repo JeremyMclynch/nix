@@ -20,15 +20,20 @@ fi
 # Shows your changes
 git diff -U0
 
+#if [[ "$2" == "hold" ]]; then
+#  read -n 1 -s -r -p "Continue? [y/N] " ans
+#  echo
+#  if [[ "$ans" != [yY] ]]; then
+#    echo "Aborted."
+#    exit 1
+#  fi
+#fi
+
 echo "NixOS Rebuilding..."
 
 # Rebuild, output simplified errors, log trackebacks
-if [ "$2" == "pkexec" ]; then
-  pkexec --user jeremy nixos-rebuild switch --flake ~/nix/#"$1" &>nixos-switch.log || (cat nixos-switch.log | grep --color error &&
-    read -n 1 -s -r -p "Press any key to continue..." _ && exit 1)
-else
-  sudo nixos-rebuild switch --flake ~/nix/#"$1" &>nixos-switch.log || (cat nixos-switch.log | grep --color error && exit 1)
-fi
+sudo nixos-rebuild switch --flake ~/nix/#"$1" &>nixos-switch.log || (cat nixos-switch.log | grep --color error &&
+  read -n 1 -s -r -p "Press any key to continue..." _ && exit 1)
 
 # Get current generation metadata
 current=$(nixos-rebuild list-generations | grep True)

@@ -23,7 +23,7 @@ for i in "${!DISPLAY_NAMES[@]}"; do
   if [[ "$CHOICE" != "exit" && "${DISPLAY_NAMES[i]}" == "$CHOICE" ]]; then
     git pull
     eval "${COMMANDS[i]}"
-    foot -e --title='rebuild' ../scripts/rebuild.sh "${systemname}" pkexec
+    foot -e --title='rebuild' ../scripts/rebuild.sh "${systemname}"
     break
   fi
 done
