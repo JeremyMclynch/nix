@@ -65,6 +65,13 @@ services.flatpak.enable = true;
 #};
  
 
+environment.etc."libinput/local-overrides.quirks".text = ''
+  [Serial Keyboards]
+
+  MatchUdevType=keyboard
+  MatchName=keyd*keyboard
+  AttrKeyboardIntegration=internal
+'';
 
 
 
