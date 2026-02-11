@@ -95,6 +95,7 @@ services.flatpak.enable = true;
     networkmanagerapplet
     networkmanager-openconnect
     debootstrap
+    wofi
     
     (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
       pkgs.buildFHSEnv (base // {
