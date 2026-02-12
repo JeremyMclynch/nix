@@ -63,6 +63,11 @@ services.flatpak.enable = true;
 #    defaultNetwork.settings.dns_enabled = true; # Required for containers under podman-compose to be able to talk to each other.
 #  };
 #};
+
+nixpkgs.config.segger-jlink.acceptLicense = true;
+nixpkgs.config.permittedInsecurePackages = [
+  "segger-jlink-qt4-874"
+];
  
 
 environment.etc."libinput/local-overrides.quirks".text = ''
@@ -99,6 +104,11 @@ environment.etc."libinput/local-overrides.quirks".text = ''
     networkmanager-openconnect
     debootstrap
     wofi
+    nrfconnect
+    nrf-udev
+    nrf5-sdk
+    nrfutil
+    nrf-command-line-tools
 
     (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
       pkgs.buildFHSEnv (base // {
