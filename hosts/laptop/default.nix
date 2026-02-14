@@ -109,6 +109,7 @@ environment.etc."libinput/local-overrides.quirks".text = ''
     nrf5-sdk
     nrfutil
     nrf-command-line-tools
+    screen
 
     (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
       pkgs.buildFHSEnv (base // {
