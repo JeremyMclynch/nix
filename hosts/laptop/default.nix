@@ -79,7 +79,7 @@ environment.etc."libinput/local-overrides.quirks".text = ''
 '';
 
 
-systemd.services."serial-getty@ttyACM1".enable = true;
+#systemd.services."serial-getty@ttyACM1".enable = true;
 
   environment.systemPackages = with pkgs; [
     wget
