@@ -99,6 +99,7 @@
     obsidian
     remmina
     vscode
+    localsend
     #zoom-us
     addwater
     spotify
