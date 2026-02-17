@@ -87,6 +87,7 @@ environment.etc."libinput/local-overrides.quirks".text = ''
     vivaldi
     git
     quartus-prime-lite
+    nmap
     debootstrap
     xhost
     docker
