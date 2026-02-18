@@ -119,5 +119,6 @@
     xleak
     tabiew
     visidata
+    tmux
   ];
 }
