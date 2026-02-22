@@ -123,6 +123,7 @@ programs.gamescope = {
     apptainer
     lutris
     wofi
+    rpcs3
 
     (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
       pkgs.buildFHSEnv (base // {
