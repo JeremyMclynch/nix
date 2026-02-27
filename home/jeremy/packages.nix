@@ -120,5 +120,6 @@
     tabiew
     visidata
     tmux
+    claude-code
   ];
 }
