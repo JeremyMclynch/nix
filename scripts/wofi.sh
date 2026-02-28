@@ -47,7 +47,7 @@ for i in "${!DISPLAY_NAMES[@]}"; do
   if [[ "$CHOICE" != "exit" && "${DISPLAY_NAMES[i]}" == "$CHOICE" ]]; then
     git pull
     eval "${COMMANDS[i]}"
-    if git diff --exit-code; then
+    if [[ "$CHOICE" != "rebuild" ]] && git diff --exit-code; then
       notify-send -e "No changes detected, exiting..." --icon=software-update-available-symbolic
       break
     else
