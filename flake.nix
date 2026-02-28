@@ -1,9 +1,7 @@
-
 {
   description = "Jeremy's NixOS config (desktop + laptop) with Home Manager, GNOME+GDM and optional Hyprland session";
 
   inputs = {
-    #nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     home-manager = {
@@ -11,7 +9,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Caelestia
     caelestiaCli = {
       url = "github:caelestia-dots/cli";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -21,23 +18,25 @@
       url = "github:caelestia-dots/shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-#     nix-matlab = {
-#       url = "gitlab:doronbehar/nix-matlab";
-#       inputs.nixpkgs.follows = "nixpkgs";
-#  };
 
+    # nix-matlab = {
+    #   url = "gitlab:doronbehar/nix-matlab";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
   };
 
-  outputs = { self, nixpkgs, home-manager, caelestiaShell, caelestiaCli,  ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, caelestiaShell, caelestiaCli, ... }@inputs:
     let
       lib = nixpkgs.lib;
-#      flake-overlays = [
-#        nix-matlab.overlay
-#        ];
+
+      # flake-overlays = [
+      #   nix-matlab.overlay
+      # ];
 
       mkHost =
         { name

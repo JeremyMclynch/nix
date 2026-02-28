@@ -27,59 +27,53 @@
 
   networking.hostName = "nixos-laptop";
 
-  #fonts.packages = with pkgs; [ nerd-fonts.caskaydia-cove ];
-
   programs.nix-ld.enable = true;
   fonts.fontDir.enable = true;
 
-virtualisation.docker = {
-  enable = true;
-};
-hardware.enableAllFirmware = true;
-hardware.enableRedistributableFirmware = true;
+  virtualisation.docker = {
+    enable = true;
+  };
+
+  hardware.enableAllFirmware = true;
+  hardware.enableRedistributableFirmware = true;
 
   hardware.firmware = with pkgs; [
     linux-firmware
     sof-firmware
   ];
 
-environment.sessionVariables = {
-      GDK_SCALE = "1.6";
-      #GDK_DPI_SCALE = "0.5";
-      QT_QPA_PLATFORMTHEME="qt5ct";
-    };
-#environment.systemPackages = with pkgs; [ darkly-qt5 darkly ];
-qt.platformTheme = "qt5ct";
+  environment.sessionVariables = {
+    GDK_SCALE = "1.6";
+    QT_QPA_PLATFORMTHEME = "qt5ct";
+  };
 
-services.openssh.enable = true;
-services.upower.enable = true;
-services.flatpak.enable = true;
-#  virtualisation = {
-#  containers.enable = true;
-#  #docker.enable = true;
-#  podman = {
-#    enable = true;
-#    dockerCompat = true;
-#    defaultNetwork.settings.dns_enabled = true; # Required for containers under podman-compose to be able to talk to each other.
-#  };
-#};
+  qt.platformTheme = "qt5ct";
 
-nixpkgs.config.segger-jlink.acceptLicense = true;
-nixpkgs.config.permittedInsecurePackages = [
-  "segger-jlink-qt4-874"
-];
- 
+  services.openssh.enable = true;
+  services.upower.enable = true;
+  services.flatpak.enable = true;
 
-environment.etc."libinput/local-overrides.quirks".text = ''
-  [Serial Keyboards]
+  # virtualisation = {
+  #   containers.enable = true;
+  #   podman = {
+  #     enable = true;
+  #     dockerCompat = true;
+  #     defaultNetwork.settings.dns_enabled = true;
+  #   };
+  # };
 
-  MatchUdevType=keyboard
-  MatchName=keyd*keyboard
-  AttrKeyboardIntegration=internal
-'';
+  nixpkgs.config.segger-jlink.acceptLicense = true;
+  nixpkgs.config.permittedInsecurePackages = [
+    "segger-jlink-qt4-874"
+  ];
 
+  environment.etc."libinput/local-overrides.quirks".text = ''
+    [Serial Keyboards]
 
-#systemd.services."serial-getty@ttyACM1".enable = true;
+    MatchUdevType=keyboard
+    MatchName=keyd*keyboard
+    AttrKeyboardIntegration=internal
+  '';
 
   environment.systemPackages = with pkgs; [
     wget
@@ -115,24 +109,16 @@ environment.etc."libinput/local-overrides.quirks".text = ''
 
     (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
       pkgs.buildFHSEnv (base // {
-      name = "fhs";
-      targetPkgs = pkgs:
-        # pkgs.buildFHSEnv provides only a minimal FHS environment,
-        # lacking many basic packages needed by most software.
-        # Therefore, we need to add them manually.
-        #
-        # pkgs.appimageTools provides basic packages required by most software.
-        (base.targetPkgs pkgs) ++ (with pkgs; [
-          pkg-config
-          ncurses
-          # Feel free to add more packages here if needed.
-        ]
-      );
-      profile = "export FHS=1";
-      runScript = "bash";
-      extraOutputsToInstall = ["dev"];
-    }))
-
+        name = "fhs";
+        targetPkgs = pkgs:
+          (base.targetPkgs pkgs) ++ (with pkgs; [
+            pkg-config
+            ncurses
+          ]);
+        profile = "export FHS=1";
+        runScript = "bash";
+        extraOutputsToInstall = [ "dev" ];
+      }))
   ];
 
   system.stateVersion = "25.11";

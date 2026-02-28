@@ -1,11 +1,9 @@
-
 { inputs, lib, options, config, pkgs, ... }:
 
 {
   imports = [
     ./hardware-configuration.nix
     ../../roles/desktop.nix
-
 
     ../../modules/core/boot.nix
     ../../modules/core/networking.nix
@@ -33,14 +31,16 @@
   networking.hostName = "nixos-desktop";
 
   virtualisation.docker = {
-  enable = true;
+    enable = true;
   };
+
   qt.platformTheme = "qt5ct";
 
   services.openssh = {
     enable = true;
     forwardX11 = true;
   };
+
   services.upower.enable = true;
 
   systemd.targets.sleep.enable = false;
@@ -48,18 +48,15 @@
   systemd.targets.hibernate.enable = false;
   systemd.targets.hybrid-sleep.enable = false;
 
+  services.xserver.enable = true;
+  services.xserver.desktopManager.xfce.enable = true;
+  services.xrdp.enable = true;
+  services.xrdp.defaultWindowManager = "startxfce4";
+  services.xrdp.openFirewall = true;
 
-# Use the GNOME Wayland session
-services.xserver.enable = true;
-services.xserver.desktopManager.xfce.enable = true;
-services.xrdp.enable = true;
-services.xrdp.defaultWindowManager = "startxfce4";
-# Open the default RDP port (3389)
-services.xrdp.openFirewall = true;
+  services.sysstat.enable = true;
 
-services.sysstat.enable = true;
-
-services.udev = {
+  services.udev = {
     packages = with pkgs; [
       qmk
       qmk-udev-rules
@@ -69,34 +66,36 @@ services.udev = {
   };
 
   environment.variables = {
-      GDK_SCALE = "1";
-      #GDK_DPI_SCALE = "0.5";
-    };
+    GDK_SCALE = "1";
+  };
 
-services.flatpak.enable = true;
+  services.flatpak.enable = true;
 
-programs.steam = {
+  programs.steam = {
     enable = true;
     extraCompatPackages = with pkgs; [
       proton-ge-bin
     ];
   };
-programs.gamescope = {
-  enable = true;
-  capSysNice = false;
-};
+
+  programs.gamescope = {
+    enable = true;
+    capSysNice = false;
+  };
+
   hardware = {
-      graphics = {
-          enable = true;
-          enable32Bit = true;
-        };
-      keyboard.qmk.enable = true;
+    graphics = {
+      enable = true;
+      enable32Bit = true;
     };
-  #boot.kernelParams = [
-  #  "video=DP-1:2560x1440@240"
-  #  "video=DP-2:2560x1440@180"
-  #];
-  # Your original host-level packages (system-wide)
+    keyboard.qmk.enable = true;
+  };
+
+  # boot.kernelParams = [
+  #   "video=DP-1:2560x1440@240"
+  #   "video=DP-2:2560x1440@180"
+  # ];
+
   environment.systemPackages = with pkgs; [
     wget
     neovim
@@ -128,24 +127,16 @@ programs.gamescope = {
 
     (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
       pkgs.buildFHSEnv (base // {
-      name = "fhs";
-      targetPkgs = pkgs:
-        # pkgs.buildFHSEnv provides only a minimal FHS environment,
-        # lacking many basic packages needed by most software.
-        # Therefore, we need to add them manually.
-        #
-        # pkgs.appimageTools provides basic packages required by most software.
-        (base.targetPkgs pkgs) ++ (with pkgs; [
-          pkg-config
-          ncurses
-          # Feel free to add more packages here if needed.
-        ]
-      );
-      profile = "export FHS=1";
-      runScript = "bash";
-      extraOutputsToInstall = ["dev"];
-    }))
-
+        name = "fhs";
+        targetPkgs = pkgs:
+          (base.targetPkgs pkgs) ++ (with pkgs; [
+            pkg-config
+            ncurses
+          ]);
+        profile = "export FHS=1";
+        runScript = "bash";
+        extraOutputsToInstall = [ "dev" ];
+      }))
   ];
 
   system.stateVersion = "25.11";

@@ -1,5 +1,5 @@
-
 { pkgs, config, inputs, lib, ... }:
+
 {
   home.username = "jeremy";
   home.homeDirectory = "/home/jeremy";
@@ -12,150 +12,136 @@
     userName = "Jeremy McLynch";
     userEmail = "admin@jmclynch.org";
   };
+
   dconf = {
-      enable = true;
-      settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
-    };
+    enable = true;
+    settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
+  };
+
   gtk = {
-      enable = true;
-      #theme.name = "Adwaita";
-      #cursorTheme.name = "Bibata-Modern-Ice";
-      #iconTheme.name = "GruvboxPlus";
-      #theme.package = pkgs.gnome-themes-extra;
-      iconTheme = {
-          package = pkgs.adwaita-icon-theme;
-          name = "Adwaita";
-        };
+    enable = true;
+    iconTheme = {
+      package = pkgs.adwaita-icon-theme;
+      name = "Adwaita";
     };
+  };
 
   programs.neovim.enable = true;
+
   programs.bash = {
     enable = true;
     initExtra = ''
-    eval -- "$(/etc/profiles/per-user/jeremy/bin/starship init bash --print-full-init)"
-    if [ "$(hostname)" == "nixos-desktop" ]; then
-      export systemname="desktop"
-    else
-      export systemname="laptop"
-    fi
+      eval -- "$(/etc/profiles/per-user/jeremy/bin/starship init bash --print-full-init)"
+      if [ "$(hostname)" == "nixos-desktop" ]; then
+        export systemname="desktop"
+      else
+        export systemname="laptop"
+      fi
     '';
-    };
-programs.vesktop = {
-    enable = true;
+  };
 
+  programs.vesktop = {
+    enable = true;
     vencord.settings = {
       autoUpdate = true;
       autoUpdateNotification = true;
       notifyAboutUpdates = true;
-
       plugins = {
         ClearURLs.enabled = true;
         FixYoutubeEmbeds.enabled = true;
       };
     };
   };
-#  programs.caelestia = {
-#      enable = true;
-#      settings = {
-#          idle = {
-#              lockBeforeSleep = true;
-#              inhibitWhenAudio = true;
-#
-#              timeouts = [
-#              {
-#                  timeout = 180;
-#                  idleAction = "lock";
-#                }
-#                {
-#                    timout = 300;
-#                    idleAction = "dpms off";
-#                    returnAction = "dpms on";
-#                  }
-#              ];
-#            };
-#        };
-#    };
 
-  #qt.style.package = with pkgs; [ darkly-qt5 darkly ];
-  #qt.platformTheme.name = "qtct";
- # home.file = {
- #       # Example 1: Symlink a file from your dotfiles directory to a specific location
- #       ".config/my-app/config.conf" = {
- #         source = ./dotfiles/my-app/config.conf;
- #         # Optional: Make the symlink executable if it's a script
- #         # executable = true;
- #       };
- 
- home.file = {
+  # programs.caelestia = {
+  #   enable = true;
+  #   settings = {
+  #     idle = {
+  #       lockBeforeSleep = true;
+  #       inhibitWhenAudio = true;
+  #       timeouts = [
+  #         {
+  #           timeout = 180;
+  #           idleAction = "lock";
+  #         }
+  #         {
+  #           timeout = 300;
+  #           idleAction = "dpms off";
+  #           returnAction = "dpms on";
+  #         }
+  #       ];
+  #     };
+  #   };
+  # };
+
+  home.file = {
     ".config/hypr" = {
       source = ../../dots/hypr;
       recursive = true;
-      executable = true; # Makes all files in the linked directory executable
+      executable = true;
     };
     ".config/fish" = {
       source = ../../dots/fish;
       recursive = true;
-      executable = true; # Makes all files in the linked directory executable
+      executable = true;
     };
     ".config/foot" = {
       source = ../../dots/foot;
       recursive = true;
-      executable = true; # Makes all files in the linked directory executable
+      executable = true;
     };
     ".config/fastfetch" = {
       source = ../../dots/fastfetch;
       recursive = true;
-      executable = true; # Makes all files in the linked directory executable
+      executable = true;
     };
     ".config/btop" = {
       source = ../../dots/btop;
       recursive = true;
-      executable = true; # Makes all files in the linked directory executable
+      executable = true;
     };
     ".config/uwsm" = {
       source = ../../dots/uwsm;
       recursive = true;
-      executable = true; # Makes all files in the linked directory executable
+      executable = true;
     };
     ".config/starship.toml" = {
       source = ../../dots/starship.toml;
       recursive = true;
-      executable = true; # Makes all files in the linked directory executable
+      executable = true;
     };
     ".config/thunar" = {
       source = ../../dots/thunar;
       recursive = true;
-      executable = true; # Makes all files in the linked directory executable
+      executable = true;
     };
     ".config/qt5ct" = {
       source = ../../dots/qt;
       recursive = true;
-      executable = true; # Makes all files in the linked directory executable
+      executable = true;
     };
     ".config/qt6ct" = {
       source = ../../dots/qt;
       recursive = true;
-      executable = true; # Makes all files in the linked directory executable
+      executable = true;
     };
     ".config/wofi" = {
       source = ../../dots/wofi;
       recursive = true;
       executable = true;
-      };
+    };
     "Pictures/Wallpapers" = {
-        source = ../../Wallpapers;
-        recursive = true;
+      source = ../../Wallpapers;
+      recursive = true;
     };
     ".local/state/caelestia" = {
-        source = ../../dots/caelestia/state/caelestia;
-        recursive = true;
+      source = ../../dots/caelestia/state/caelestia;
+      recursive = true;
     };
     ".local/share/applications/Matlab.desktop" = {
-        source = ../../scripts/Matlab.desktop;
-      };
- };
-
-
+      source = ../../scripts/Matlab.desktop;
+    };
+  };
 
   imports = [
     ./packages.nix
