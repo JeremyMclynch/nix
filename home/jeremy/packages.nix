@@ -115,6 +115,7 @@
     jetbrains-toolbox
     hyprshot
     hyprpolkitagent
+    hypridle
     doxx
     xleak
     tabiew
