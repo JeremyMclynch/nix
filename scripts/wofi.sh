@@ -23,6 +23,7 @@ DISPLAY_NAMES=(
   "wofi.sh"
   "hypr-dir"
   "rebuild"
+  "claude"
   "exit")
 
 COMMANDS=(
@@ -37,6 +38,7 @@ COMMANDS=(
   "$nvim ../scripts/wofi.sh"
   "$nvim ../dots/hypr/hyprland/"
   ":"
+  "cd .. && claude"
   "break")
 
 # Use wofi in dmenu mode, passing the menu items via stdin
