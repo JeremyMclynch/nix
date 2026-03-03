@@ -7,7 +7,7 @@
   # Set brightness to 100% on boot
   systemd.services.set-brightness = {
     description = "Set screen brightness to 75% on boot";
-    wantedBy = [ "multi-user.target" ]; # Or graphical.target
+    wantedBy = [ "graphical.target" ]; # Or multi-user.target
     serviceConfig = {
       Type = "oneshot";
       ExecStart = "${pkgs.brightnessctl}/bin/brightnessctl set 75%";
