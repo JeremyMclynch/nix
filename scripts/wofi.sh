@@ -38,7 +38,7 @@ COMMANDS=(
   "$nvim ../scripts/wofi.sh"
   "$nvim ../dots/hypr/hyprland/"
   ":"
-  "cd .. && claude"
+  "foot -e --title='rebuild' cd .. && claude"
   "break")
 
 # Use wofi in dmenu mode, passing the menu items via stdin
