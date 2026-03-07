@@ -122,5 +122,6 @@
     visidata
     tmux
     claude-code
+    libreoffice-qt-fresh
   ];
 }
