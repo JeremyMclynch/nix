@@ -53,7 +53,7 @@ for i in "${!DISPLAY_NAMES[@]}"; do
       notify-send -e "No changes detected, exiting..." --icon=software-update-available-symbolic
       break
     else
-      foot -e --title='rebuild' ../scripts/rebuild.sh "${systemname}"
+      foot -e --title='rebuild' ../scripts/rebuild.sh "${systemname} force"
     fi
     break
   fi
