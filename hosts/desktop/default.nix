@@ -123,7 +123,7 @@
     lutris
     wofi
     rpcs3
-    discord
+    #discord
 
     (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
       pkgs.buildFHSEnv (base // {
