@@ -10,7 +10,7 @@
     wantedBy = [ "graphical.target" ]; # Or multi-user.target
     serviceConfig = {
       Type = "oneshot";
-      ExecStart = "${pkgs.brightnessctl}/bin/brightnessctl set 75% -d intel_backlight";
+      ExecStart = "${pkgs.brightnessctl}/bin/brightnessctl set 144000 -d intel_backlight && ${pkgs.brightnessctl}/bin/brightnessctl get -d intel_backlight";
     };
   };
 
