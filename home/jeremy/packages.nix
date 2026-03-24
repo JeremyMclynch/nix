@@ -123,5 +123,6 @@
     tmux
     claude-code
     libreoffice-qt-fresh
+    speedtest-cli
   ];
 }
