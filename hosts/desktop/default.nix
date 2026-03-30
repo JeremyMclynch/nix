@@ -124,6 +124,7 @@
     wofi
     rpcs3
     #discord
+    kicad
 
     (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
       pkgs.buildFHSEnv (base // {
