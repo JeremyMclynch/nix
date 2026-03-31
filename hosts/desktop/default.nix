@@ -125,6 +125,7 @@
     rpcs3
     #discord
     kicad
+    mkosi
 
     (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
       pkgs.buildFHSEnv (base // {
