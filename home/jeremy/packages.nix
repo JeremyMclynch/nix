@@ -124,5 +124,6 @@
     claude-code
     libreoffice-qt-fresh
     speedtest-cli
+    nix-index
   ];
 }
