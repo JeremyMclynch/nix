@@ -18,6 +18,14 @@
     settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
   };
 
+  #home.pointerCursor = {
+  #  name = "Dracula-cursors";
+  #  package = pkgs.dracula-theme;
+  #  size = 24;
+  #  gtk.enable = true;
+  #  x11.enable = true;
+  #};
+
   gtk = {
     enable = true;
     iconTheme = {
