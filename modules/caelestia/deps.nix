@@ -5,7 +5,7 @@
   environment.systemPackages = with pkgs; [
     ddcutil
     brightnessctl
-    app2unit
+    #app2unit
     cava
     lm_sensors
     fish

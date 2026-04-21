@@ -9,15 +9,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    caelestiaCli = {
-      url = "github:caelestia-dots/cli";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    #caelestiaCli = {
+    #  url = "github:caelestia-dots/cli";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
 
-    caelestiaShell = {
-      url = "github:caelestia-dots/shell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    #caelestiaShell = {
+    #  url = "github:caelestia-dots/shell";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
 
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
@@ -30,7 +30,7 @@
     # };
   };
 
-  outputs = { self, nixpkgs, home-manager, caelestiaShell, caelestiaCli, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, ... }@inputs:
     let
       lib = nixpkgs.lib;
 

@@ -3,7 +3,6 @@
 {
   home.packages = with pkgs; [
     # frequently used CLI tools
-    neofetch
     nnn
 
     # archives

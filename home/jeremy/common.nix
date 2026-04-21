@@ -153,6 +153,6 @@
 
   imports = [
     ./packages.nix
-    ./caelestia.nix
+    #./caelestia.nix
   ];
 }
