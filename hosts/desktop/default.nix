@@ -64,8 +64,8 @@
       via
     ];
     extraRules = ''
-    ACTION=="add", SUBSYSTEM=="sound", ATTRS{idVendor}=="0fd9", ATTRS{idProduct}=="008c", TAG+="systemd", ENV{SYSTEMD_USER_WANTS}+="capture-card-loopback.service"
-    ACTION=="remove", SUBSYSTEM=="sound", ATTRS{idVendor}=="0fd9", ATTRS{idProduct}=="008c", TAG+="systemd", RUN+="${pkgs.systemd}/bin/systemctl --user --machine=jeremy@ stop capture-card-loopback.service"
+    ACTION=="add", SUBSYSTEM=="sound", ATTRS{idVendor}=="0fd9", ATTRS{idProduct}=="008c", ENV{ELGATO_LOOPBACK}="1", TAG+="systemd", ENV{SYSTEMD_USER_WANTS}+="capture-card-loopback.service"
+    ACTION=="remove", SUBSYSTEM=="sound", ENV{ELGATO_LOOPBACK}=="1", RUN+="${pkgs.systemd}/bin/systemctl --user --machine=jeremy@ stop capture-card-loopback.service"
     '';
   };
 
