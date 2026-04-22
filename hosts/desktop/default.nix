@@ -83,6 +83,21 @@
     capSysNice = false;
   };
 
+  systemd.user.services.capture-card-loopback = {
+  description = "Loopback Elgato capture card audio to FiiO K3";
+  wantedBy = [ "pipewire.service" ];
+  after = [ "pipewire.service" ];
+  serviceConfig = {
+    ExecStart = ''
+      ${pkgs.pipewire}/bin/pw-loopback \
+        --capture-props=node.target=alsa_input.usb-Elgato_Elgato_Game_Capture_Neo_ABAMB5131042KX-02.analog-stereo \
+        --playback-props=node.target=alsa_output.usb-GuangZhou_FiiO_Electronics_Co._Ltd_FiiO_K3-00.analog-stereo
+    '';
+    Restart = "on-failure";
+    RestartSec = 2;
+  };
+};
+
   hardware = {
     graphics = {
       enable = true;
