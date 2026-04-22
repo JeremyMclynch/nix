@@ -63,6 +63,10 @@
       qmk_hid
       via
     ];
+    extraRules = ''
+    ACTION=="add", SUBSYSTEM=="sound", ATTRS{idVendor}=="0fd9", ATTRS{idProduct}=="008c", TAG+="systemd", ENV{SYSTEMD_USER_WANTS}+="capture-card-loopback.service"
+    ACTION=="remove", SUBSYSTEM=="sound", ATTRS{idVendor}=="0fd9", ATTRS{idProduct}=="008c", TAG+="systemd", RUN+="${pkgs.systemd}/bin/systemctl --user --machine=jeremy@ stop capture-card-loopback.service"
+    '';
   };
 
   environment.variables = {
@@ -83,9 +87,8 @@
     capSysNice = false;
   };
 
-  systemd.user.services.capture-card-loopback = {
+systemd.user.services.capture-card-loopback = {
   description = "Loopback Elgato capture card audio to FiiO K3";
-  wantedBy = [ "pipewire.service" ];
   after = [ "pipewire.service" ];
   serviceConfig = {
     ExecStart = ''
