@@ -35,5 +35,5 @@
   };
 
   # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_latest; # pkgs.linuxKernel.packages.linux_6_17; 
+  boot.kernelPackages = pkgs.linuxPackages_zen; #pkgs.linuxPackages_latest; # pkgs.linuxKernel.packages.linux_6_17; 
 }
