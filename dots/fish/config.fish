@@ -69,6 +69,22 @@ if status is-interactive
     abbr la 'ls -a'
     abbr lla 'ls -la'
 
+    # Colored man pages via less
+    set -gx LESS_TERMCAP_mb (printf '\e[1;31m')
+    set -gx LESS_TERMCAP_md (printf '\e[1;31m')
+    set -gx LESS_TERMCAP_me (printf '\e[0m')
+    set -gx LESS_TERMCAP_se (printf '\e[0m')
+    set -gx LESS_TERMCAP_so (printf '\e[1;33;44m')
+    set -gx LESS_TERMCAP_ue (printf '\e[0m')
+    set -gx LESS_TERMCAP_us (printf '\e[4;1;32m')
+    set -gx LESS_TERMCAP_mr (printf '\e[7m')
+    set -gx LESS_TERMCAP_mh (printf '\e[2m')
+    set -gx LESS_TERMCAP_ZN (printf '\e[74m')
+    set -gx LESS_TERMCAP_ZV (printf '\e[75m')
+    set -gx LESS_TERMCAP_ZO (printf '\e[73m')
+    set -gx LESS_TERMCAP_ZW (printf '\e[75m')
+    set -gx MANPAGER 'less'
+
     # Custom colours
     cat ~/.local/state/caelestia/sequences.txt 2>/dev/null
 
