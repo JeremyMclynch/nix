@@ -83,7 +83,7 @@ if status is-interactive
     set -gx LESS_TERMCAP_ZV (printf '\e[75m')
     set -gx LESS_TERMCAP_ZO (printf '\e[73m')
     set -gx LESS_TERMCAP_ZW (printf '\e[75m')
-    set -gx MANPAGER 'less'
+    set -gx MANPAGER 'less -R'
 
     # Custom colours
     cat ~/.local/state/caelestia/sequences.txt 2>/dev/null
