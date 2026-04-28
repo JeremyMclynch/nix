@@ -6,7 +6,8 @@ touch "$cache_file"
 
 
 # Get input from user
-input=$(echo "$cache_file" | wofi --dmenu --prompt "Ask Claude:" --width 800 --height 200 --cache-file ~/.cache/wofi/claude-cache)
+input=$(cat "$cache_file" | wofi --dmenu --prompt "Ask Claude:" --width 800 --height 200 --cache-file ~/.cache/wofi/claude-cache)
+
 
 # Check if user provided input (didn't cancel)
 if [ -n "$input" ]; then
