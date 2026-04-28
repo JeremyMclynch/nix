@@ -1,5 +1,5 @@
 
-{ pkgs, ... }:
+{ ... }:
 {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -34,6 +34,4 @@
 
   };
 
-  # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_zen; #pkgs.linuxPackages_latest; # pkgs.linuxKernel.packages.linux_6_17; 
 }

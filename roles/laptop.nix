@@ -1,9 +1,11 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 
 {
   imports = [
     ../modules/power/laptop-power.nix
   ];
+
+  boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
 
   powerManagement.enable = true;
   services.upower.enable = true;
