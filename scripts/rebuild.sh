@@ -32,7 +32,7 @@ git diff -U0
 echo "NixOS Rebuilding..."
 
 # Rebuild, output simplified errors, log trackebacks
-sudo nixos-rebuild switch --flake ~/nix/#"$1" &>nixos-switch.log || (cat nixos-switch.log | grep --color error &&
+sudo nixos-rebuild switch --flake ~/nix/#"$1" |& tee nixos-switch.log || (cat nixos-switch.log | grep --color error &&
   read -n 1 -s -r -p "Press any key to continue..." _ && exit 1)
 
 # Get current generation metadata
