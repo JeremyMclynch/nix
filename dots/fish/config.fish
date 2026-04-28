@@ -12,21 +12,7 @@ if status is-interactive
     set system (hostname)
     set PATH $PATH:/home/jeremy/.bin
 
-    set LESS_TERMCAP_mb '\e[1;31m'
-    set LESS_TERMCAP_md '\e[1;31m'
-    set LESS_TERMCAP_me '\e[0m'
-    set LESS_TERMCAP_se '\e[0m'
-    set LESS_TERMCAP_so '\e[1;33;44m'
-    set LESS_TERMCAP_ue '\e[0m'
-    set LESS_TERMCAP_us '\e[4;1;32m'
-    set LESS_TERMCAP_mr '\e[7m'
-    set LESS_TERMCAP_mh '\e[2m'
-    set LESS_TERMCAP_ZN '\e[74m'
-    set LESS_TERMCAP_ZV '\e[75m'
-    set LESS_TERMCAP_ZO '\e[73m'
-    set LESS_TERMCAP_ZW '\e[75m'
-    set MANPAGER 'less'
-
+    
     # Better ls
     alias ls='eza --icons --group-directories-first -1'
     alias ssh='TERM=xterm-256color $sshpath'
