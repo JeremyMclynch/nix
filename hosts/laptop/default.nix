@@ -100,6 +100,7 @@
     networkmanagerapplet
     networkmanager-openconnect
     debootstrap
+    libinput
     wofi
     nrfconnect
     nrf-udev
