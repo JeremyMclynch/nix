@@ -86,7 +86,6 @@
     debootstrap
     xhost
     docker
-    darkly-qt5
     darkly
     adwaita-icon-theme
     alsa-utils

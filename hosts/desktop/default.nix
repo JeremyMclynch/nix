@@ -127,7 +127,6 @@ systemd.user.services.capture-card-loopback = {
     xhost
     docker
     podman
-    darkly-qt5
     darkly
     adwaita-icon-theme
     bluetui
