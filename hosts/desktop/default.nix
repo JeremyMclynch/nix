@@ -122,7 +122,7 @@ systemd.user.services.capture-card-loopback = {
     neovim
     vivaldi
     git
-    quartus-prime-lite
+    #quartus-prime-lite
     debootstrap
     xhost
     docker
@@ -144,7 +144,7 @@ systemd.user.services.capture-card-loopback = {
     wofi
     rpcs3
     #discord
-    kicad
+    #kicad
     mkosi
 
     (let base = pkgs.appimageTools.defaultFhsEnvArgs; in

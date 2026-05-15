@@ -81,7 +81,7 @@
     neovim
     vivaldi
     git
-    quartus-prime-lite
+    #quartus-prime-lite
     nmap
     debootstrap
     xhost
