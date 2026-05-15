@@ -140,7 +140,6 @@ systemd.user.services.capture-card-loopback = {
     networkmanagerapplet
     debootstrap
     apptainer
-    lutris
     wofi
     rpcs3
     #discord
