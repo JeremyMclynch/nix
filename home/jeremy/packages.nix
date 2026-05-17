@@ -17,6 +17,8 @@
     yq-go
     eza
     fzf
+    ncdu
+    qdirstat
 
     # networking tools
     mtr
