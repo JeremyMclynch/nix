@@ -19,6 +19,7 @@
     kitty
     #waybar
     wofi
+    libnotify
     #hyprpaper
   ];
 }
