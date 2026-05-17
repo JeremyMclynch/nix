@@ -124,5 +124,6 @@
     libreoffice-qt-fresh
     speedtest-cli
     nix-index
+    proton-vpn
   ];
 }
