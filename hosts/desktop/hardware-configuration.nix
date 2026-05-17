@@ -28,6 +28,12 @@
     [ { device = "/dev/disk/by-uuid/03e00070-6f43-4650-b4a0-170784538eee"; }
     ];
 
+  fileSystems."/mnt/data" = {
+    device = "/dev/disk/by-uuid/3439ccd0-9deb-4142-991b-b1ed75d827ba";
+    fsType = "ext4";
+    options = [ "defaults" "nofail" ];
+  };
+
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
