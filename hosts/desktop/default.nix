@@ -78,6 +78,7 @@
   programs.steam = {
     enable = true;
     extest.enable = true;
+    extraPackages = [ pkgs.hidapi ];
     extraCompatPackages = with pkgs; [
       proton-ge-bin
     ];
