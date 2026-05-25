@@ -91,6 +91,15 @@
     capSysNice = false;
   };
 
+  environment.etc."wayland-sessions/gamescope-session.desktop".text = ''
+    [Desktop Entry]
+    Name=Gamescope Session
+    Comment=Steam Big Picture in Gamescope (HDR)
+    Exec=gamescope --backend drm --prefer-output DP-1 -W 2560 -H 1440 -r 240 --hdr-enabled --adaptive-sync -- steam -tenfoot -gamepadui
+    Type=Application
+    DesktopNames=gamescope
+  '';
+
 systemd.user.services.capture-card-loopback = {
   description = "Loopback Elgato capture card audio to FiiO K3";
   after = [ "pipewire.service" ];
