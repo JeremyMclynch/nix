@@ -101,7 +101,7 @@
       [Desktop Entry]
       Name=Gamescope (HDR Gaming)
       Comment=Steam Big Picture on OLED via dGPU
-      Exec=env WLR_DRM_DEVICES=/dev/dri/card1 MESA_VK_DEVICE_SELECT=1002:744c gamescope --backend drm --prefer-output DP-1 -W 2560 -H 1440 -r 240 --hdr-enabled --adaptive-sync -- steam -tenfoot -gamepadui
+      Exec=env WLR_DRM_DEVICES=/dev/dri/card1 MESA_VK_DEVICE_SELECT=1002:744c gamescope --backend drm --prefer-output DP-1 -W 2560 -H 1440 -r 240 --hdr-enabled --adaptive-sync --steam --expose-wayland --force-grab-cursor -- steam -tenfoot -gamepadui -steamos3 -steampal
       Type=Application
       DesktopNames=gamescope
       EOF
