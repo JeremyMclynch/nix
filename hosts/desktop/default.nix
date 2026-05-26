@@ -92,14 +92,21 @@
     capSysNice = false;
   };
 
-environment.etc."wayland-sessions/gamescope-session.desktop".text = ''
-    [Desktop Entry]
-    Name=Gamescope (HDR Gaming)
-    Comment=Steam Big Picture on OLED via dGPU
-    Exec=env WLR_DRM_DEVICES=/dev/dri/card1 MESA_VK_DEVICE_SELECT=1002:744c gamescope --backend drm --prefer-output DP-1 -W 2560 -H 1440 -r 240 --hdr-enabled --adaptive-sync -- steam -tenfoot -gamepadui
-    Type=Application
-    DesktopNames=gamescope
-  '';
+  services.displayManager.sessionPackages = [
+    (pkgs.runCommand "gamescope-session" {
+      passthru.providedSessions = [ "gamescope-session" ];
+    } ''
+      mkdir -p $out/share/wayland-sessions
+      cat > $out/share/wayland-sessions/gamescope-session.desktop <<EOF
+      [Desktop Entry]
+      Name=Gamescope (HDR Gaming)
+      Comment=Steam Big Picture on OLED via dGPU
+      Exec=env WLR_DRM_DEVICES=/dev/dri/card1 MESA_VK_DEVICE_SELECT=1002:744c gamescope --backend drm --prefer-output DP-1 -W 2560 -H 1440 -r 240 --hdr-enabled --adaptive-sync -- steam -tenfoot -gamepadui
+      Type=Application
+      DesktopNames=gamescope
+      EOF
+    '')
+  ];
 
 systemd.user.services.capture-card-loopback = {
   description = "Loopback Elgato capture card audio to FiiO K3";
