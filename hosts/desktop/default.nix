@@ -71,6 +71,7 @@
 
   environment.variables = {
     GDK_SCALE = "1";
+    AQ_DRM_DEVICES = "/dev/dri/card2";
   };
 
   services.flatpak.enable = true;
@@ -91,11 +92,11 @@
     capSysNice = false;
   };
 
-  environment.etc."wayland-sessions/gamescope-session.desktop".text = ''
+environment.etc."wayland-sessions/gamescope-session.desktop".text = ''
     [Desktop Entry]
-    Name=Gamescope Session
-    Comment=Steam Big Picture in Gamescope (HDR)
-    Exec=gamescope --backend drm --prefer-output DP-1 -W 2560 -H 1440 -r 240 --hdr-enabled --adaptive-sync -- steam -tenfoot -gamepadui
+    Name=Gamescope (HDR Gaming)
+    Comment=Steam Big Picture on OLED via dGPU
+    Exec=env WLR_DRM_DEVICES=/dev/dri/card1 MESA_VK_DEVICE_SELECT=1002:744c gamescope --backend drm --prefer-output DP-1 -W 2560 -H 1440 -r 240 --hdr-enabled --adaptive-sync -- steam -tenfoot -gamepadui
     Type=Application
     DesktopNames=gamescope
   '';
