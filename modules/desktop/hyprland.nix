@@ -22,4 +22,12 @@
     libnotify
     #hyprpaper
   ];
+
+  # CJK + emoji font coverage so Japanese/Chinese/Korean glyphs render
+  fonts.packages = with pkgs; [
+    noto-fonts
+    noto-fonts-cjk-sans
+    noto-fonts-cjk-serif
+    noto-fonts-emoji
+  ];
 }
