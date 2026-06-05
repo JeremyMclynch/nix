@@ -165,6 +165,7 @@ systemd.user.services.capture-card-loopback = {
     #discord
     #kicad
     mkosi
+    cmake
 
     (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
       pkgs.buildFHSEnv (base // {
