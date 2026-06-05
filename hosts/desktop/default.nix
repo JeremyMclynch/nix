@@ -135,6 +135,8 @@ systemd.user.services.capture-card-loopback = {
   #   "video=DP-2:2560x1440@180"
   # ];
 
+  programs.neovim.enable = true;
+
   environment.systemPackages = with pkgs; [
     wget
     neovim

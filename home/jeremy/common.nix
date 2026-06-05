@@ -34,7 +34,6 @@
     };
   };
 
-  programs.neovim.enable = true;
 
   programs.bash = {
     enable = true;

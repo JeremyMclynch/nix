@@ -76,6 +76,8 @@
     AttrKeyboardIntegration=internal
   '';
 
+  programs.neovim.enable = true;
+
   environment.systemPackages = with pkgs; [
     wget
     neovim
