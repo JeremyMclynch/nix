@@ -83,5 +83,28 @@
           hostModule = ./hosts/laptop/default.nix;
         };
       };
+
+      templates = {
+        cpp = {
+          path = ./templates/cpp;
+          description = "C/C++ devShell (gcc, clang, cmake, gdb)";
+        };
+        rust = {
+          path = ./templates/rust;
+          description = "Rust devShell (rustc, cargo, rust-analyzer)";
+        };
+        go = {
+          path = ./templates/go;
+          description = "Go devShell (go, gopls, delve)";
+        };
+        python = {
+          path = ./templates/python;
+          description = "Python devShell (python3, uv, ruff)";
+        };
+        node = {
+          path = ./templates/node;
+          description = "Node.js devShell (nodejs, pnpm, typescript)";
+        };
+      };
     };
 }

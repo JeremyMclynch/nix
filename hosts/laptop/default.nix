@@ -23,6 +23,8 @@
 
     ../../modules/power/bluetooth.nix
     ../../modules/noctalia/noctalia.nix
+
+    ../../modules/dev/environment.nix
   ];
 
   networking.hostName = "nixos-laptop";
@@ -109,19 +111,6 @@
     nrfutil
     nrf-command-line-tools
     screen
-
-    (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
-      pkgs.buildFHSEnv (base // {
-        name = "fhs";
-        targetPkgs = pkgs:
-          (base.targetPkgs pkgs) ++ (with pkgs; [
-            pkg-config
-            ncurses
-          ]);
-        profile = "export FHS=1";
-        runScript = "bash";
-        extraOutputsToInstall = [ "dev" ];
-      }))
   ];
 
   system.stateVersion = "25.11";

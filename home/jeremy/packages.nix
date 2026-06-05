@@ -92,7 +92,6 @@
     nerd-fonts.jetbrains-mono
     pavucontrol
     zoxide
-    gcc
     lxqt.pavucontrol-qt
     slack
     nemo

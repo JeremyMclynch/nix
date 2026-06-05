@@ -23,6 +23,8 @@
 
     ../../modules/power/bluetooth.nix
     ../../modules/noctalia/noctalia.nix
+
+    ../../modules/dev/environment.nix
   ];
 
   programs.nix-ld.enable = true;
@@ -165,20 +167,6 @@ systemd.user.services.capture-card-loopback = {
     #discord
     #kicad
     mkosi
-    cmake
-
-    (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
-      pkgs.buildFHSEnv (base // {
-        name = "fhs";
-        targetPkgs = pkgs:
-          (base.targetPkgs pkgs) ++ (with pkgs; [
-            pkg-config
-            ncurses
-          ]);
-        profile = "export FHS=1";
-        runScript = "bash";
-        extraOutputsToInstall = [ "dev" ];
-      }))
   ];
 
   system.stateVersion = "25.11";
