@@ -126,5 +126,6 @@
     speedtest-cli
     nix-index
     proton-vpn
+    qutebrowser
   ];
 }

@@ -33,6 +33,9 @@
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
     let
       lib = nixpkgs.lib;
+      system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
+      toolchains = import ./modules/dev/toolchains.nix { inherit pkgs; };
 
       # flake-overlays = [
       #   nix-matlab.overlay
@@ -82,6 +85,15 @@
           name = "laptop";
           hostModule = ./hosts/laptop/default.nix;
         };
+      };
+
+      devShells.${system}.default = pkgs.mkShell {
+        packages = toolchains.all;
+
+        shellHook = ''
+          export IN_DEVSHELL=1
+          echo "devshell ready (gcc $(${pkgs.gcc}/bin/gcc -dumpversion), $(${pkgs.rustc}/bin/rustc --version | cut -d' ' -f2), go $(${pkgs.go}/bin/go version | awk '{print $3}'), python $(${pkgs.python3}/bin/python3 -V | cut -d' ' -f2), node $(${pkgs.nodejs_22}/bin/node --version), jdk $(${pkgs.jdk}/bin/java --version | head -1 | awk '{print $2}'))"
+        '';
       };
 
       templates = {

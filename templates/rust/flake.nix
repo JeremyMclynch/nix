@@ -1,0 +1,29 @@
+{
+  description = "Rust devShell";
+
+  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+
+  outputs = { self, nixpkgs }:
+    let
+      system = "x86_64-linux";
+      pkgs = import nixpkgs { inherit system; };
+    in {
+      devShells.${system}.default = pkgs.mkShell {
+        packages = with pkgs; [
+          rustc
+          cargo
+          rust-analyzer
+          clippy
+          rustfmt
+          pkg-config
+          openssl
+        ];
+
+        shellHook = ''
+          echo "Rust devShell"
+          echo "  $(rustc --version)"
+          echo "  $(cargo --version)"
+        '';
+      };
+    };
+}
