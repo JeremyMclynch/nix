@@ -40,7 +40,7 @@
 
   services.openssh = {
     enable = true;
-    forwardX11 = true;
+    settings.X11Forwarding = true;
   };
 
   services.upower.enable = true;
@@ -163,7 +163,7 @@ systemd.user.services.capture-card-loopback = {
     debootstrap
     apptainer
     wofi
-    rpcs3
+    # rpcs3  # upstream build broken: undefined reference to __glewXSwapIntervalEXT in GLGSRender
     #discord
     #kicad
     mkosi

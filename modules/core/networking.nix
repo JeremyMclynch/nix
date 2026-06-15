@@ -33,11 +33,13 @@
 
   services.resolved = {
     enable = true;
-    dnssec = "allow-downgrade";
-    fallbackDns = [
-      "1.1.1.1#one.one.one.one"
-      "1.0.0.1#one.one.one.one"
-    ];
-    dnsovertls = "opportunistic";
+    settings.Resolve = {
+      DNSSEC = "allow-downgrade";
+      FallbackDNS = [
+        "1.1.1.1#one.one.one.one"
+        "1.0.0.1#one.one.one.one"
+      ];
+      DNSOverTLS = "opportunistic";
+    };
   };
 }

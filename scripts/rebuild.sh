@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 set -e
+set -o pipefail
 
 if [ -z "$1" ]; then
   echo "No Argument given, exiting..."
@@ -32,16 +33,27 @@ git diff -U0
 echo "NixOS Rebuilding..."
 
 # Rebuild, output simplified errors, log trackebacks
-sudo nixos-rebuild switch --flake ~/nix/#"$1" |& tee nixos-switch.log || (cat nixos-switch.log | grep --color error &&
-  read -n 1 -s -r -p "Press any key to continue..." _ && exit 1)
+sudo nixos-rebuild switch --flake ~/nix/#"$1" |& tee nixos-switch.log || {
+  grep --color error nixos-switch.log || true
+  read -n 1 -s -r -p "Press any key to continue..." _
+  exit 1
+}
 
 # Get current generation metadata
 current=$(nixos-rebuild list-generations | grep True)
 
 # Commit all changes witih the generation metadata
-git commit -am "$current" || (notify-send -e "NixOS Rebult, Git did not generate commit." --icon=software-update-available-symbolic && read -n 1 -s -r -p "Press any key to continue..." _ && exit 1)
+git commit -am "$current" || {
+  notify-send -e "NixOS Rebult, Git did not generate commit." --icon=software-update-available-symbolic
+  read -n 1 -s -r -p "Press any key to continue..." _
+  exit 1
+}
 
-git push origin main || (notify-send -e "NixOS Rebult, Git did not push to orgin main." --icon=software-update-available-symbolic && read -n 1 -s -r -p "Press any key to continue..." _ && exit 1)
+git push origin main || {
+  notify-send -e "NixOS Rebult, Git did not push to orgin main." --icon=software-update-available-symbolic
+  read -n 1 -s -r -p "Press any key to continue..." _
+  exit 1
+}
 # Back to where you were
 popd
 

@@ -9,8 +9,10 @@
 
   programs.git = {
     enable = true;
-    userName = "Jeremy McLynch";
-    userEmail = "admin@jmclynch.org";
+    settings.user = {
+      name = "Jeremy McLynch";
+      email = "admin@jmclynch.org";
+    };
   };
 
   programs.direnv = {
