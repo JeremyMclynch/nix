@@ -1,12 +1,7 @@
--- Hyprland Lua configuration (0.55+), converted from the legacy hyprlang
--- .conf files. This is a parallel config: it is NOT loaded while named
--- ".new". To activate, rename this file to `hyprland.lua` — Hyprland prefers
--- hyprland.lua over hyprland.conf when both are present. To revert, rename it
--- back (or delete it) and Hyprland falls back to hyprland.conf.
+-- Hyprland Lua configuration (0.55+).
 --
--- The configuration is split into modules under lua/, each converted from the
--- matching .conf file. They are required here in the same order the old
--- hyprland.conf sourced them.
+-- The configuration is split into modules under lua/, required here in the
+-- order Hyprland should apply them.
 
 require("lua.env")
 require("lua.monitors")
