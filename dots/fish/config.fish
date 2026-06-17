@@ -38,11 +38,11 @@ if status is-interactive
     abbr sshwspr1 'ssh wsprdaemon@njit-bl-1'
     abbr sshwspr2 'ssh wsprdaemon@njit-bl-2'
     abbr sshd 'ssh jeremy@archdesktop'
-    abbr viconf 'nvim $dotpath/hypr/hyprland.conf'
-    abbr vivar 'nvim $dotpath/hypr/variables.conf'
-    abbr vibind 'nvim $dotpath/hypr/hyprland/keybinds-noctalia.conf'
-    abbr vivar 'nvim $dotpath/hypr/variables.conf'
-    abbr cdh 'cd $dotpath/hypr/hyprland/'
+    abbr viconf 'nvim $dotpath/hypr/hyprland.lua'
+    abbr vivar 'nvim $dotpath/hypr/lua/variables.lua'
+    abbr vibind 'nvim $dotpath/hypr/lua/binds.lua'
+    abbr virules 'nvim $dotpath/hypr/lua/rules.lua'
+    abbr cdh 'cd $dotpath/hypr/lua/'
     abbr vifish 'nvim $dotpath/fish/config.fish'
     abbr vi nvim
     abbr vim nvim
