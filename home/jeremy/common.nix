@@ -94,6 +94,10 @@
       recursive = true;
       executable = true;
     };
+    # Hyprland Lua API type stubs (defines the `hl` global) for lua_ls.
+    # Referenced by dots/hypr/.luarc.json so neovim/LazyVim recognizes `hl`
+    # and offers completion. Tracks the current Hyprland version automatically.
+    ".config/hypr/stubs".source = "${pkgs.hyprland}/share/hypr/stubs";
     ".config/fish" = {
       source = ../../dots/fish;
       recursive = true;
