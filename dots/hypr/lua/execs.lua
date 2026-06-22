@@ -32,6 +32,9 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("noctalia -d")
     hl.exec_cmd("nm-applet --indicator")
 
-    -- Idle daemon
-    hl.exec_cmd("hypridle")
+    -- Idle daemon. Kill any leftover instance first: exec-launched hypridle from
+    -- a previous session can survive relogins/soft-reboots, and a second daemon
+    -- that doesn't own the org.freedesktop.ScreenSaver dbus name will keep
+    -- counting down and lock the screen even while Firefox/etc. inhibit idle.
+    hl.exec_cmd("pkill -x hypridle; sleep 0.5; hypridle")
 end)
