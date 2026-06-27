@@ -45,6 +45,9 @@ hl.bind("XF86AudioMicMute",     hl.dsp.exec_cmd("pavucontrol-qt"))
 
 -- Kill/restart
 hl.bind("CTRL + SUPER + SHIFT + R", hl.dsp.exec_cmd("hyprctl reload"), { release = true })
+-- Refresh: reload Hyprland config, and relaunch noctalia if it has crashed
+-- (launch matches execs.lua: `noctalia -d`).
+hl.bind("SUPER + SHIFT + R", hl.dsp.exec_cmd("hyprctl reload; pgrep -x noctalia >/dev/null || noctalia -d"))
 
 -- Go to / move to workspace #  (key 0 maps to workspace 10)
 for i = 1, 10 do
