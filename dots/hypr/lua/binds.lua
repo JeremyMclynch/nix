@@ -139,6 +139,9 @@ hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("noctalia msg volume-down"), { l
 -- Sleep
 hl.bind("SUPER + SHIFT + L", hl.dsp.exec_cmd("systemctl suspend-then-hibernate"))
 
+-- Log out / end the Hyprland session (returns to the login manager)
+hl.bind("SUPER + SHIFT + Q", hl.dsp.exit())
+
 -- Clipboard and emoji picker
 hl.bind("SUPER + V",      hl.dsp.exec_cmd("noctalia msg panel-toggle clipboard"))
 hl.bind("SUPER + Period", hl.dsp.exec_cmd("noctalia msg panel-toggle launcher /emo"))
