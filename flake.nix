@@ -85,6 +85,11 @@
           name = "laptop";
           hostModule = ./hosts/laptop/default.nix;
         };
+
+        nixos-rog = mkHost {
+          name = "nixos-rog";
+          hostModule = ./hosts/nixos-rog/default.nix;
+        };
       };
 
       devShells.${system}.default = pkgs.mkShell {
