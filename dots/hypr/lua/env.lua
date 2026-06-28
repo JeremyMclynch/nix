@@ -40,6 +40,9 @@ end
 if hostname() == "nixos-rog" then
     hl.env("AQ_NO_ATOMIC", "1")
     hl.env("WLR_NO_HARDWARE_CURSORS", "1")
+    -- Disappearing-cursor fix (was cursor { no_hardware_cursors = true } in
+    -- the old hyprlang config). Pairs with WLR_NO_HARDWARE_CURSORS above.
+    hl.config({ cursor = { no_hardware_cursors = true } })
 end
 
 hl.config({
