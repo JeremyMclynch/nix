@@ -25,6 +25,22 @@ hl.env("XDG_SESSION_DESKTOP", "Hyprland")
 -- Others
 hl.env("_JAVA_AWT_WM_NONREPARENTING", "1")
 
+-- Host-specific: the ROG Zephyrus laptop's GPU won't start Hyprland under
+-- aquamarine's atomic modesetting, so it needs AQ_NO_ATOMIC=1. The dotfiles
+-- are symlinked identically to every host, so detect the machine at runtime
+-- via /etc/hostname (set declaratively to "nixos-rog" in that host's config).
+local function hostname()
+    local f = io.open("/etc/hostname", "r")
+    if not f then return "" end
+    local name = f:read("l") or ""
+    f:close()
+    return name
+end
+
+if hostname() == "nixos-rog" then
+    hl.env("AQ_NO_ATOMIC", "1")
+end
+
 hl.config({
     xwayland = {
         force_zero_scaling = true,
