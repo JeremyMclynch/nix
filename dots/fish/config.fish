@@ -23,6 +23,8 @@ if status is-interactive
 
     if [ "$system" = nixos-desktop ]
         set systemname desktop
+    else if [ "$system" = nixos-rog ] 
+    	set systemname nixos-rog
     else
         set systemname laptop
     end

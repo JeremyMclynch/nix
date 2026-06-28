@@ -1,7 +1,6 @@
 { lib, pkgs, ... }:
 {
   imports = [
-    ../modules/power/laptop-power.nix
     ../modules/power/rog-power.nix
     ../modules/asus/rog.nix
   ];
