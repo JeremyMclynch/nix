@@ -3,7 +3,7 @@
   # ASUS ROG daemon — fan curves, performance profiles, keyboard RGB, charging limit
   services.asusd = {
     enable = true;
-    enableUserService = true;
+    #enableUserService = true;
   };
 
   # GPU switcher daemon (integrated / hybrid / dedicated / vfio)
@@ -26,15 +26,15 @@
       enableOffloadCmd = true;
     };
     # Update these BusIDs after running: lspci | grep -E "VGA|3D"
-    amdgpuBusId = "PCI:7:0:0";
-    nvidiaBusId  = "PCI:1:0:0";
+    #amdgpuBusId = "PCI:7:0:0";
+    #nvidiaBusId  = "PCI:1:0:0";
   };
 
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
     extraPackages = with pkgs; [
-      amdvlk
+      #amdvlk
       rocmPackages.rocm-runtime
     ];
   };
