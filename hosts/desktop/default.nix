@@ -78,6 +78,8 @@
 
   services.flatpak.enable = true;
 
+  documentation.dev.enable = true;
+
   programs.steam = {
     enable = true;
     extest.enable = true;

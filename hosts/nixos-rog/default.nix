@@ -64,6 +64,8 @@
   '';
 
   programs.neovim.enable = true;
+  documentation.dev.enable = true;
+
 
   environment.systemPackages = with pkgs; [
     wget
