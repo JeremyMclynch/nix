@@ -46,13 +46,17 @@
     enable = true;
     initExtra = ''
       eval -- "$(/etc/profiles/per-user/jeremy/bin/starship init bash --print-full-init)"
+      
+      export PATH="$PATH:$HOME/.bin"
+
       if [ "$(hostname)" == "nixos-desktop" ]; then
         export systemname="desktop"
       else
         export systemname="laptop"
       fi
+
       if [ -f ~/.config/exercism/exercism_completion.bash ]; then               
-      source ~/.config/exercism/exercism_completion.bash                      
+        source ~/.config/exercism/exercism_completion.bash                      
       fi  
     '';
   };
