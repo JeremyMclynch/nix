@@ -128,6 +128,6 @@
     proton-vpn
     qutebrowser
     man-pages
-    man-pages-posix
+    #man-pages-posix
   ];
 }
