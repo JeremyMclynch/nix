@@ -144,7 +144,7 @@ systemd.user.services.capture-card-loopback = {
   environment.systemPackages = with pkgs; [
     wget
     neovim
-    vivaldi
+    chromium
     git
     #quartus-prime-lite
     debootstrap
