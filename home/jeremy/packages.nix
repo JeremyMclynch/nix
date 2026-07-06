@@ -126,7 +126,6 @@
     speedtest-cli
     nix-index
     proton-vpn
-    qutebrowser
     man-pages
     man-pages-posix
   ];
