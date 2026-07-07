@@ -28,13 +28,33 @@ hl.on("hyprland.start", function()
     -- Forward bluetooth media commands to MPRIS
     hl.exec_cmd("mpris-proxy")
 
-    -- Shell + tray
-    hl.exec_cmd("noctalia -d")
+    -- Tray (the shell, noctalia, is started together with hypridle below so
+    -- their D-Bus startup order is deterministic -- see the comment there).
     hl.exec_cmd("nm-applet --indicator")
 
-    -- Idle daemon. Kill any leftover instance first: exec-launched hypridle from
-    -- a previous session can survive relogins/soft-reboots, and a second daemon
-    -- that doesn't own the org.freedesktop.ScreenSaver dbus name will keep
-    -- counting down and lock the screen even while Firefox/etc. inhibit idle.
-    hl.exec_cmd("pkill -x hypridle; sleep 0.5; hypridle")
+    -- Idle daemon + shell, launched in a STRICT order.
+    --
+    -- hypridle and noctalia both try to own the org.freedesktop.ScreenSaver
+    -- D-Bus name, and whoever grabs it first keeps it: hypridle cannot take it
+    -- back (it logs "Another service is already providing the ...ScreenSaver
+    -- interface"), while noctalia falls back gracefully to plain logind
+    -- idle-inhibit monitoring when it loses the race. That name is exactly
+    -- where Firefox/mpv/etc. send their "media is playing" idle inhibit, so
+    -- hypridle MUST own it -- otherwise the inhibit dies at noctalia and the
+    -- lock screen fires while watching a video.
+    --
+    -- So: kill any leftovers (an exec-launched daemon can survive relogins/
+    -- soft-reboots), start hypridle, wait until it has claimed the D-Bus name,
+    -- and only THEN start noctalia.
+    hl.exec_cmd(
+        "pkill -x hypridle; pkill -x noctalia; sleep 0.5; " ..
+        "hypridle & " ..
+        "for _ in $(seq 1 50); do " ..
+            "busctl --user call org.freedesktop.DBus /org/freedesktop/DBus " ..
+            "org.freedesktop.DBus GetNameOwner s org.freedesktop.ScreenSaver " ..
+            ">/dev/null 2>&1 && break; " ..
+            "sleep 0.1; " ..
+        "done; " ..
+        "exec noctalia -d"
+    )
 end)
