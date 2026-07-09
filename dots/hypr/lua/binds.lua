@@ -19,6 +19,7 @@ hl.bind("SUPER + X", hl.dsp.exec_cmd("noctalia msg panel-toggle session"))
 hl.bind("SUPER + S", hl.dsp.exec_cmd("noctalia msg panel-toggle control-center"))
 hl.bind("SUPER + I", hl.dsp.exec_cmd("noctalia msg settings-toggle"))
 hl.bind("SUPER + L", hl.dsp.exec_cmd("noctalia msg session lock"))
+hl.bind("SUPER + SHIFT + S", hl.dsp.exec_cmd("hyprshot --clipboard-only -m region")) --screenshot keybind
 -- Reset touchpad (disable+re-enable). `hyprctl keyword` no longer works under
 -- a Lua config, so use `hyprctl eval` with hl.device instead.
 hl.bind("SUPER + P", hl.dsp.exec_cmd([[hyprctl eval 'hl.device({ name = "ven_2c2f:00-2c2f:002b-touchpad", enabled = false })'; hyprctl eval 'hl.device({ name = "ven_2c2f:00-2c2f:002b-touchpad", enabled = true })']]), { locked = true })
