@@ -46,6 +46,8 @@ if status is-interactive
     abbr virules 'nvim $dotpath/hypr/lua/rules.lua'
     abbr cdh 'cd $dotpath/hypr/lua/'
     abbr vifish 'nvim $dotpath/fish/config.fish'
+    abbr ani-cli 'anipy-cli'
+    abbr anicli 'anipy-cli'
     abbr vi nvim
     abbr vim nvim
     abbr lg lazygit
