@@ -28,6 +28,20 @@
     #   url = "gitlab:doronbehar/nix-matlab";
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
+
+    # anipy-cli bundles an old poetry2nix fork that does NOT build against
+    # current nixos-unstable (e.g. python-modules/build no longer accepts
+    # `tomli`, now stdlib; lib.licenses gained AND/OR/WITH operators that its
+    # license lookup chokes on). Pin it to the exact nixpkgs anipy-cli itself
+    # locks (Dec 2025), which predates both breakages, rather than following our
+    # bleeding-edge nixpkgs. Removing the follows entirely is not enough: nix
+    # re-resolves the transitive input to a too-new revision.
+    nixpkgs-anipy.url = "github:NixOS/nixpkgs/addf7cf5f383a3101ecfba091b98d0a1263dc9b8";
+
+    anipy-cli = {
+      url = "github:sdaqo/anipy-cli";
+      inputs.nixpkgs.follows = "nixpkgs-anipy";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:

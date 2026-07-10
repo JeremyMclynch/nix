@@ -169,6 +169,9 @@ systemd.user.services.capture-card-loopback = {
     # rpcs3  # upstream build broken: undefined reference to __glewXSwapIntervalEXT in GLGSRender
     #discord
     #kicad
+    # Pinned to anipy-cli's own nixpkgs via inputs.nixpkgs-anipy (see flake.nix)
+    # because its bundled poetry2nix fork does not build against current unstable.
+    inputs.anipy-cli.packages.${pkgs.system}.default
     mkosi
   ];
 
