@@ -8,11 +8,11 @@
         "poetry2nix": "poetry2nix"
       },
       "locked": {
-        "lastModified": 1783540697,
-        "narHash": "sha256-tj3fgAO1hTryLOaxy7yYrXWV+em9d48xTgNFdbirQXQ=",
+        "lastModified": 1784560705,
+        "narHash": "sha256-fx2vuNC5hlz497sHIMeo/jQpyPeuW1whHGZ20JT54uw=",
         "owner": "sdaqo",
         "repo": "anipy-cli",
-        "rev": "4734076e9e99817594a2d5d85dcf5b4e00831fd2",
+        "rev": "fc98e5e432caf096512db90d31a44167e0e32142",
         "type": "github"
       },
       "original": {
@@ -145,11 +145,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1765578053,
-        "narHash": "sha256-pV/v6HWoygn9MvLWpVwA9HofKv3bMez+FwTr43DHcM4=",
+        "lastModified": 1784560639,
+        "narHash": "sha256-22yMBBljs0hKJMoVz1yP87NRnQRk2GzRMqRBzohAHLY=",
         "owner": "sdaqo",
         "repo": "poetry2nix",
-        "rev": "816d5ec3fec51eac670f6a6ff24331bd010bcd5d",
+        "rev": "b5f2cc99957737d5b96c12227ea175e27553d8a4",
         "type": "github"
       },
       "original": {
