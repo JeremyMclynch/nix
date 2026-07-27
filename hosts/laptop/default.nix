@@ -78,6 +78,9 @@
     AttrKeyboardIntegration=internal
   '';
 
+
+  services.logind.settings.Login.HandlePowerKey = "ignore"; # Ignore power button press for accidental shutdown
+
   programs.neovim.enable = true;
 
   documentation.dev.enable = true;
