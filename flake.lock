@@ -8,11 +8,11 @@
         "poetry2nix": "poetry2nix"
       },
       "locked": {
-        "lastModified": 1784560705,
-        "narHash": "sha256-fx2vuNC5hlz497sHIMeo/jQpyPeuW1whHGZ20JT54uw=",
+        "lastModified": 1784983526,
+        "narHash": "sha256-1ryFwnlleCi7HKbs8G+JdUUPqgjd9Tu0hl3ptdgZkt8=",
         "owner": "sdaqo",
         "repo": "anipy-cli",
-        "rev": "fc98e5e432caf096512db90d31a44167e0e32142",
+        "rev": "ea63e76cb6e9e407486467eb4b4aefc19e6c788f",
         "type": "github"
       },
       "original": {
