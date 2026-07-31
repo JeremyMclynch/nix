@@ -20,11 +20,6 @@
     nix-direnv.enable = true;
   };
 
-  dconf = {
-    enable = true;
-    settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
-  };
-
   #home.pointerCursor = {
   #  name = "Dracula-cursors";
   #  package = pkgs.dracula-theme;

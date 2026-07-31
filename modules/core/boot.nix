@@ -1,5 +1,5 @@
 
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -8,7 +8,7 @@
 
     plymouth = {
       enable = true;
-      theme = "rings";
+      theme = lib.mkDefault "rings";
       themePackages = with pkgs; [
         # By default we would install all themes
         (adi1090x-plymouth-themes.override {

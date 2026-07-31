@@ -11,7 +11,7 @@
     ../../modules/core/nix.nix
     ../../modules/core/users.nix
 
-    ../../modules/desktop/gnome.nix
+    ../../modules/desktop/kde.nix
     ../../modules/desktop/printing.nix
     ../../modules/desktop/hyprland.nix
 
@@ -32,8 +32,9 @@
   programs.nix-ld.enable = true;
   fonts.fontDir.enable = true;
 
-  virtualisation.docker = {
-    enable = true;
+  virtualisation = {
+    vmware.host.enable = true;
+    docker.enable = true;
   };
 
   hardware.enableAllFirmware = true;
@@ -43,13 +44,6 @@
     linux-firmware
     sof-firmware
   ];
-
-  environment.sessionVariables = {
-    GDK_SCALE = "1.6";
-    QT_QPA_PLATFORMTHEME = "qt5ct";
-  };
-
-  qt.platformTheme = "qt5ct";
 
   services.openssh.enable = true;
   services.upower.enable = true;
