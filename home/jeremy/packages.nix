@@ -128,5 +128,6 @@
     proton-vpn
     man-pages
     man-pages-posix
+    caligula
   ];
 }
