@@ -111,6 +111,8 @@
     nrfutil
     nrf-command-line-tools
     screen
+    nautilus
+    gnome-disk-utility
   ];
 
   system.stateVersion = "25.11";
