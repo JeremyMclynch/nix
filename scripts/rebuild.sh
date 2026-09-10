@@ -30,10 +30,37 @@ git diff -U0
 #  fi
 #fi
 
-echo "NixOS Rebuilding..."
+echo "Building configuration (no activation)..."
+
+# Build only -- validates the whole config without touching the running system.
+# No sudo: an unprivileged build keeps the ./result symlink user-owned.
+# Wrap in `script` (a pseudo-tty) so nix/nixos-rebuild still emit ANSI color even
+# though stdout is piped into tee; tee then forwards those color codes to screen.
+script -qefc "nixos-rebuild build --flake ~/nix/#$1" /dev/null | tee nixos-switch.log || {
+  grep --color error nixos-switch.log || true
+  echo "Build failed -- not activating."
+  read -n 1 -s -r -p "Press any key to continue..." _
+  exit 1
+}
+
+# Build passed -- choose how to activate. Enter (empty) defaults to switch.
+echo
+echo "Build OK. Choose activation:"
+echo "  [s] switch -- activate now (default)"
+echo "  [b] boot   -- activate on next boot"
+echo "  [c] cancel -- do nothing"
+read -n 1 -s -r -p "Selection [S/b/c] (Enter = switch): " action
+echo
+case "$action" in
+  ""|s|S) mode="switch" ;;
+  b|B)    mode="boot" ;;
+  *)      echo "Cancelled."; popd; exit 0 ;;
+esac
+
+echo "NixOS Rebuilding ($mode)..."
 
 # Rebuild, output simplified errors, log trackebacks
-sudo nixos-rebuild switch --flake ~/nix/#"$1" |& tee nixos-switch.log || {
+script -qefc "sudo nixos-rebuild $mode --flake ~/nix/#$1" /dev/null | tee -a nixos-switch.log || {
   grep --color error nixos-switch.log || true
   read -n 1 -s -r -p "Press any key to continue..." _
   exit 1
