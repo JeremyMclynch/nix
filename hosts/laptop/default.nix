@@ -11,7 +11,7 @@
     ../../modules/core/nix.nix
     ../../modules/core/users.nix
 
-    ../../modules/desktop/kde.nix
+    ../../modules/desktop/gnome.nix
     ../../modules/desktop/printing.nix
     ../../modules/desktop/hyprland.nix
 
@@ -59,10 +59,10 @@
   #   };
   # };
 
-  nixpkgs.config.segger-jlink.acceptLicense = true;
-  nixpkgs.config.permittedInsecurePackages = [
-    "segger-jlink-qt4-874"
-  ];
+#  nixpkgs.config.segger-jlink.acceptLicense = true;
+#  nixpkgs.config.permittedInsecurePackages = [
+#    "segger-jlink-qt4-874"
+#  ];
 
   environment.etc."libinput/local-overrides.quirks".text = ''
     [Serial Keyboards]
@@ -96,7 +96,7 @@
     sof-firmware
     alsa-ucm-conf
     bluetui
-    jetbrains.dataspell
+    #jetbrains.dataspell
     python314
     platformio-core
     platformio
@@ -105,14 +105,12 @@
     debootstrap
     libinput
     wofi
-    nrfconnect
-    nrf-udev
-    nrf5-sdk
-    nrfutil
-    nrf-command-line-tools
+    #nrfconnect
+    #nrf-udev
+    #nrf5-sdk
+    #nrfutil
+    #nrf-command-line-tools
     screen
-    nautilus
-    gnome-disk-utility
   ];
 
   system.stateVersion = "25.11";
