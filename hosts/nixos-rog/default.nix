@@ -65,8 +65,14 @@
   # user@1000 session partially alive; without this they block the final unmount of /run.
   systemd.services.pre-shutdown-fuse-umount = {
     description = "Lazy-unmount user FUSE mounts before shutdown";
+    # DefaultDependencies=yes (the default) silently adds Conflicts=shutdown.target,
+    # which wins over WantedBy=shutdown.target and prevents the service from running.
+    unitConfig.DefaultDependencies = "no";
     wantedBy = [ "shutdown.target" "reboot.target" "halt.target" ];
-    before    = [ "shutdown.target" "reboot.target" "halt.target" ];
+    before   = [ "shutdown.target" "reboot.target" "halt.target" ];
+    # Run after the user session stops so the FUSE daemons are dead and lazy-umount
+    # can fully detach the mounts before systemd-shutdown pivots to the initramfs.
+    after    = [ "user@1000.service" "user-runtime-dir@1000.service" ];
     serviceConfig = {
       Type            = "oneshot";
       RemainAfterExit = true;
