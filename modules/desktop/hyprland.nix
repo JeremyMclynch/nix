@@ -2,9 +2,11 @@
 { pkgs, ... }:
 {
   # Adds Hyprland as an extra session in GDM (GNOME remains available).
+  # UWSM wraps Hyprland in a systemd scope, activates graphical-session.target,
+  # and exports the Wayland environment — enabling portals and other session services.
   programs.hyprland = {
     enable = true;
-    #withUWSM = true;
+    withUWSM = true;
     xwayland.enable = true;
   };
 
