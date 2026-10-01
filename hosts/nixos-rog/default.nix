@@ -53,6 +53,8 @@
   services.openssh.enable = true;
   services.upower.enable = true;
   services.flatpak.enable = true;
+
+  services.hardware.bolt.enable = true;
   systemd.services.NetworkManager-wait-online.enable = false;
 
   environment.etc."libinput/local-overrides.quirks".text = ''
