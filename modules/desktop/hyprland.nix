@@ -11,7 +11,12 @@
   # Portals for screenshots/screencast/file pickers
   xdg.portal = {
     enable = true;
-    extraPortals = with pkgs; [ xdg-desktop-portal-hyprland ];
+    extraPortals = with pkgs; [ xdg-desktop-portal-hyprland xdg-desktop-portal-gtk ];
+    config.common = {
+      default = [ "hyprland" "gtk" ];
+      # Settings portal (color scheme → dark mode) must be served by gtk, not hyprland
+      "org.freedesktop.portal.Settings" = [ "gtk" ];
+    };
   };
 
   # Handy basics for first login to Hyprland
