@@ -22,10 +22,18 @@
     };
   };
 
-  # Prevent NVIDIA kernel modules from loading at all
-  boot.blacklistedKernelModules = [ "nvidia" "nvidia_drm" "nvidia_modeset" "nvidia_uvm" "nouveau" ];
+  # NVIDIA drivers re-enabled for proper shutdown hooks (nvidia-suspend/hibernate/resume
+  # services maintain clean systemd ordering during shutdown/sleep).
+  # dgpu_disable=1 removes the GPU from the PCIe bus, so the modules load but find
+  # no device — no PRIME config needed.
+  hardware.nvidia = {
+    modesetting.enable = true;
+    powerManagement.enable = true;
+    open = false;
+    nvidiaSettings = false;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+  };
 
-  # AMD iGPU only
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
@@ -36,6 +44,7 @@
 
   environment.systemPackages = with pkgs; [
     asusctl
+    supergfxctl
     nvtopPackages.full
     lm_sensors
     zenmonitor

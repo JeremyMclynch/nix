@@ -57,6 +57,9 @@
   services.hardware.bolt.enable = true;
   systemd.services.NetworkManager-wait-online.enable = false;
 
+  # Reduce shutdown hang time — default 90s is too long if a FUSE mount is busy
+  systemd.settings.Manager.DefaultTimeoutStopSec = "15s";
+
   environment.etc."libinput/local-overrides.quirks".text = ''
     [Serial Keyboards]
 
