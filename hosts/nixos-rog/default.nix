@@ -70,7 +70,6 @@
   environment.systemPackages = with pkgs; [
     wget
     neovim
-    vivaldi
     git
     nmap
     debootstrap
