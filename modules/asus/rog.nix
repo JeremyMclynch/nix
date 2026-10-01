@@ -6,42 +6,36 @@
     #enableUserService = true;
   };
 
-  # GPU switcher daemon (integrated / hybrid / dedicated / vfio)
-  services.supergfxd.enable = true;
+  # supergfxd disabled — it resets dgpu_disable on startup, fighting the firmware setting
+  services.supergfxd.enable = false;
 
-  # NVIDIA drivers (required for supergfxd dedicated/hybrid modes)
-  hardware.nvidia = {
-    modesetting.enable = true;
-    powerManagement.enable = true;
-    powerManagement.finegrained = true;
-    open = false;
-    nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
-  };
-
-  # PRIME offload — dGPU only active when explicitly requested
-  hardware.nvidia.prime = {
-    offload = {
-      enable = true;
-      enableOffloadCmd = true;
+  # Disable dGPU at the ASUS firmware level (same as writing 1 to the sysfs attr manually).
+  # Runs after asusd so asusd's own WMI init doesn't overwrite it.
+  systemd.services.asus-dgpu-disable = {
+    description = "Disable ASUS dGPU via firmware attribute";
+    wantedBy = [ "multi-user.target" ];
+    after = [ "asusd.service" ];
+    serviceConfig = {
+      Type = "oneshot";
+      RemainAfterExit = true;
+      ExecStart = "${pkgs.bash}/bin/bash -c 'echo 1 > /sys/class/firmware-attributes/asus-armoury/attributes/dgpu_disable/current_value'";
     };
-    # Update these BusIDs after running: lspci | grep -E "VGA|3D"
-    #amdgpuBusId = "PCI:7:0:0";
-    #nvidiaBusId  = "PCI:1:0:0";
   };
 
+  # Prevent NVIDIA kernel modules from loading at all
+  boot.blacklistedKernelModules = [ "nvidia" "nvidia_drm" "nvidia_modeset" "nvidia_uvm" "nouveau" ];
+
+  # AMD iGPU only
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
     extraPackages = with pkgs; [
-      #amdvlk
       rocmPackages.rocm-runtime
     ];
   };
 
   environment.systemPackages = with pkgs; [
     asusctl
-    supergfxctl
     nvtopPackages.full
     lm_sensors
     zenmonitor
