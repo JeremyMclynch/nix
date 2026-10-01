@@ -34,7 +34,12 @@
       package = pkgs.adwaita-icon-theme;
       name = "Adwaita";
     };
+    gtk3.extraConfig.gtk-application-prefer-dark-theme = true;
+    gtk4.extraConfig.gtk-application-prefer-dark-theme = true;
   };
+
+  # Tells libadwaita apps (Nautilus, etc.) and xdg-desktop-portal (Firefox) to use dark mode
+  dconf.settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
 
 
   programs.bash = {
