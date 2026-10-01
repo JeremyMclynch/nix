@@ -60,6 +60,20 @@
   # Reduce shutdown hang time — default 90s is too long if a FUSE mount is busy
   systemd.settings.Manager.DefaultTimeoutStopSec = "15s";
 
+  # Lazy-unmount user FUSE mounts (gvfsd, xdg-desktop-portal) before systemd-shutdown
+  # pivots to the initramfs. They remain open even from a TTY because GDM keeps the
+  # user@1000 session partially alive; without this they block the final unmount of /run.
+  systemd.services.pre-shutdown-fuse-umount = {
+    description = "Lazy-unmount user FUSE mounts before shutdown";
+    wantedBy = [ "shutdown.target" "reboot.target" "halt.target" ];
+    before    = [ "shutdown.target" "reboot.target" "halt.target" ];
+    serviceConfig = {
+      Type            = "oneshot";
+      RemainAfterExit = true;
+      ExecStart       = "/run/current-system/sw/bin/sh -c 'umount -l /run/user/*/gvfs /run/user/*/doc 2>/dev/null; true'";
+    };
+  };
+
   environment.etc."libinput/local-overrides.quirks".text = ''
     [Serial Keyboards]
 

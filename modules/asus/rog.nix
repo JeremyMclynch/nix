@@ -22,6 +22,11 @@
     };
   };
 
+  # Blacklist the AMD SP5100 TCO hardware watchdog — without this it stays armed
+  # during shutdown and the "watchdog did not stop!" message fires, holding up the
+  # final pivot. Hardware watchdog; nowatchdog kernel param does not affect it.
+  boot.blacklistedKernelModules = [ "sp5100_tco" ];
+
   # NVIDIA drivers re-enabled for proper shutdown hooks (nvidia-suspend/hibernate/resume
   # services maintain clean systemd ordering during shutdown/sleep).
   # dgpu_disable=1 removes the GPU from the PCIe bus, so the modules load but find
