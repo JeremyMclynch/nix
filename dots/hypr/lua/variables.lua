@@ -33,7 +33,7 @@ return {
     shadowColour      = "rgba(" .. c.surface .. "d4)",
 
     -- Window styling
-    windowOpacity  = 0.95,
+    windowOpacity  = 1.0,  -- 1.0 = fully opaque (transparency off); 0.95 was the old slight transparency
     windowRounding = 10,
 
     -- Touchpad
