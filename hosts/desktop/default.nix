@@ -15,6 +15,8 @@
     ../../modules/desktop/printing.nix
     ../../modules/desktop/hyprland.nix
 
+    ../../modules/hardware/nvidia.nix
+
     ../../modules/services/audio-pipewire.nix
     ../../modules/services/tailscale.nix
     ../../modules/services/keyd.nix
