@@ -27,3 +27,16 @@ hl.monitor({
     sdr_max_luminance   = 400,
     cm                  = "hdr",
 })
+
+hl.monitor({
+    output              = "HDMI-A-1",
+    mode                = "2560x1440@180",
+    position            = "2560x0",
+    scale               = 1,
+    bitdepth            = 10,
+    supports_hdr        = 1,
+    supports_wide_color = 1,
+    sdr_min_luminance   = 0.005,
+    sdr_max_luminance   = 400,
+    cm                  = "hdr",
+})

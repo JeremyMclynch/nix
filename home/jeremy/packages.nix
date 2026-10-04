@@ -50,7 +50,10 @@
     glow
 
     # monitoring
-    btop
+    # btop-cuda is plain btop built with GPU/NVML support so the NVIDIA GPU shows
+    # up in btop's GPU panel. Same ~49M closure as btop; it just finds the NVML
+    # library at runtime. Harmless on hosts without an NVIDIA GPU (panel is empty).
+    btop-cuda
     iotop
     iftop
 
@@ -81,7 +84,6 @@
     fish
     fastfetch
     starship
-    btop
     jq
     socat
     imagemagick
