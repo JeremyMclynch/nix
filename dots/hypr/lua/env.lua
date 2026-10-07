@@ -37,11 +37,18 @@ local function hostname()
     return name
 end
 
-if hostname() == "nixos-rog" then
+local host = hostname()
+
+if host == "nixos-rog" then
     hl.env("AQ_NO_ATOMIC", "1")
     hl.env("WLR_NO_HARDWARE_CURSORS", "1")
     -- Disappearing-cursor fix (was cursor { no_hardware_cursors = true } in
     -- the old hyprlang config). Pairs with WLR_NO_HARDWARE_CURSORS above.
+    hl.config({ cursor = { no_hardware_cursors = true } })
+elseif host == "nixos-desktop" then
+    -- NVIDIA (RTX 5080): use software cursors. NVIDIA's hardware cursor plane
+    -- corrupts or crashes the compositor on mode changes -- notably when toggling
+    -- HDR / 10-bit output -- so disabling it is the key stability fix on this GPU.
     hl.config({ cursor = { no_hardware_cursors = true } })
 end
 

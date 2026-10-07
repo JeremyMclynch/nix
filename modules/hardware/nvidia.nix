@@ -28,6 +28,11 @@
     # flag enables are not needed.
   };
 
+  # Load the NVIDIA modules in the initrd (early KMS). Recommended for NVIDIA on
+  # Wayland: modesetting is active from boot, which avoids mode/HDR-switch glitches
+  # and flicker. Merges with hardware-configuration.nix's (empty) initrd list.
+  boot.initrd.kernelModules = [ "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
+
   # Hardware video decode/encode.
   #
   # NVENC (encode) and NVDEC (decode) ship inside the nvidia driver itself, so
@@ -55,6 +60,11 @@
   environment.sessionVariables = {
     LIBVA_DRIVER_NAME = "nvidia";
     NVD_BACKEND = "direct";
+    # Make GLX apps (XWayland / Xorg clients) pick the NVIDIA vendor library.
+    # Recommended by the Hyprland NVIDIA guide. GBM_BACKEND is deliberately NOT
+    # set -- it is no longer needed with modern drivers and is a known cause of
+    # Chromium/Electron glitches, of which this host has many.
+    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
   };
 
   # GPU monitoring plus VA-API/VDPAU diagnostics (`vainfo`, `vdpauinfo`).
