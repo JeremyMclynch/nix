@@ -42,6 +42,17 @@
       url = "github:sdaqo/anipy-cli";
       inputs.nixpkgs.follows = "nixpkgs-anipy";
     };
+
+    # ani-cli (the pystardust POSIX-shell tool) tracked straight from upstream so
+    # it can be bumped on demand -- it breaks often as streaming sources change.
+    # `flake = false` makes this just the source tree; home/jeremy/packages.nix
+    # builds it by overriding nixpkgs' ani-cli derivation's `src` (reusing that
+    # package's runtime-dependency wrapping). Update with `nix flake update ani-cli`
+    # then rebuild -- only this one package rebuilds, not the rest of nixpkgs.
+    ani-cli = {
+      url = "github:pystardust/ani-cli";
+      flake = false;
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:

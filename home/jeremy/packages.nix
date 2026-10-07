@@ -1,5 +1,5 @@
 
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   home.packages = with pkgs; [
     # frequently used CLI tools
@@ -111,7 +111,15 @@
     flatpak
     gnome-software
     warehouse
-    ani-cli
+    # ani-cli built from the latest upstream commit pinned as the `ani-cli` flake
+    # input (not the lagging nixpkgs version). Bump with `nix flake update ani-cli`
+    # then rebuild; only this package rebuilds. The override reuses nixpkgs'
+    # runtime-dep wrapping (fzf, mpv, yt-dlp, curl-impersonate, ...) and just
+    # points src at the newer source.
+    (ani-cli.overrideAttrs (old: {
+      version = inputs.ani-cli.shortRev or "unstable";
+      src = inputs.ani-cli;
+    }))
     mpv
     gimp
     jetbrains-toolbox
