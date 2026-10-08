@@ -111,6 +111,8 @@
     #nrfutil
     #nrf-command-line-tools
     screen
+    rclone
+    rclone-ui
   ];
 
   system.stateVersion = "25.11";
