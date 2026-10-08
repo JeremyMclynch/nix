@@ -112,7 +112,7 @@
     #nrf-command-line-tools
     screen
     rclone
-    rclone-ui
+    rclone-browser
   ];
 
   system.stateVersion = "25.11";
