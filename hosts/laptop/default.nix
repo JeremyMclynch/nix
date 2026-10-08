@@ -83,7 +83,7 @@
   environment.systemPackages = with pkgs; [
     wget
     neovim
-    vivaldi
+    #vivaldi
     git
     #quartus-prime-lite
     nmap
