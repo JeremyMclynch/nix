@@ -33,6 +33,7 @@ if status is-interactive
     abbr rebuild-clean 'sudo nixos-rebuild switch --flake ~/nix/#$systemname'
     abbr rebuild-boot 'sudo nixos-rebuild build --flake ~/nix/#$systemname'
     abbr rebuild-build 'sudo nixos-rebuild build --flake ~/nix/#$systemname'
+    abbr nix-clean 'sudo nix-collect-garbage --delete-older-than 30d'
     abbr cdhome 'cd ~/nix/home/jeremy/'
     abbr vipkg 'nvim ~/nix/home/jeremy/packages.nix'
     abbr vihost 'nvim ~/nix/hosts/$systemname/default.nix'
