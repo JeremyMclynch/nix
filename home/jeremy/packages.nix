@@ -122,7 +122,6 @@
     }))
     mpv
     gimp
-    jetbrains-toolbox
     hyprshot
     hyprpolkitagent
     hypridle

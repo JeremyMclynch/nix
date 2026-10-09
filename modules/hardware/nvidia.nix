@@ -22,7 +22,9 @@
     modesetting.enable = true;   # required for Wayland and for a clean console/X handoff
     open = true;                 # REQUIRED for Blackwell / RTX 50-series
     nvidiaSettings = true;       # install the nvidia-settings control panel
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    # `latest` = the newest driver branch nixpkgs packages (newer than `stable`
+    # or `beta`). Update it along with nixpkgs via `nix flake update nixpkgs`.
+    package = config.boot.kernelPackages.nvidiaPackages.latest;
     # powerManagement is left at its default (off): this host disables
     # sleep/suspend/hibernate entirely, so the suspend/resume workarounds that
     # flag enables are not needed.
