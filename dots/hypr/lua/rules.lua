@@ -83,9 +83,14 @@ hl.window_rule({
     pin               = true,
 })
 
--- Steam
+-- Steam: float every popup/child window (Friends List, Settings, notifications,
+-- chat, dialogs, ...) but keep the main client window tiled. All of these share
+-- the "steam" class and only differ by title, so float the whole class and then
+-- force the main window -- the one titled exactly "Steam" -- back to tiled.
+-- (Games normally get the separate "steam_app_<id>" class, handled below.)
 hl.window_rule({ match = { class = "steam" }, rounding = 10 })
-hl.window_rule({ match = { class = "steam", title = "Friends List|Steam Settings" }, float = true })
+hl.window_rule({ match = { class = "steam" }, float = true })
+hl.window_rule({ match = { class = "steam", title = "^Steam$" }, float = false })
 hl.window_rule({ match = { class = "steam_app_[0-9]+" }, immediate = true })          -- Allow tearing for steam games
 hl.window_rule({ match = { class = "steam_app_[0-9]+" }, idle_inhibit = "always" })   -- Always idle inhibit while playing
 
