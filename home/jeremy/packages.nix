@@ -138,5 +138,6 @@
     man-pages
     man-pages-posix
     caligula
+    thunderbird
   ];
 }
