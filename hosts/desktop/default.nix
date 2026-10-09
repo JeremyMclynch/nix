@@ -175,6 +175,7 @@ systemd.user.services.capture-card-loopback = {
     # because its bundled poetry2nix fork does not build against current unstable.
     inputs.anipy-cli.packages.${pkgs.system}.default
     mkosi
+    rclone
   ];
 
   system.stateVersion = "25.11";
