@@ -83,7 +83,7 @@
   environment.systemPackages = with pkgs; [
     wget
     neovim
-    vivaldi
+    #vivaldi
     git
     #quartus-prime-lite
     nmap
@@ -111,6 +111,8 @@
     #nrfutil
     #nrf-command-line-tools
     screen
+    rclone
+    rclone-browser
   ];
 
   system.stateVersion = "25.11";
