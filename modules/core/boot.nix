@@ -33,7 +33,7 @@
     # generation list is shown on every boot -- lets you pick an older, known-good
     # generation if the new config misbehaves (e.g. during the GPU/driver swap).
     # Set back to 0 to restore the silent/instant boot.
-    loader.timeout = 5;
+    loader.timeout = 0;
 
   };
 
