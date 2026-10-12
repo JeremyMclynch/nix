@@ -23,6 +23,7 @@ hl.window_rule({ match = { class = "com\\.github\\.GradienceTeam\\.Gradience" },
 hl.window_rule({ match = { class = "feh" }, float = true })
 hl.window_rule({ match = { class = "imv" }, float = true })
 hl.window_rule({ match = { class = "system-config-printer" }, float = true })
+hl.window_rule({ match = { class = "org\\.gnome\\.Calculator" }, float = true })
 hl.window_rule({ match = { class = "org\\.quickshell" }, float = true })
 hl.window_rule({ match = { title = "MATLAB\\ R2025b" }, float = false })
 hl.window_rule({ match = { initial_title = "MATLAB" }, float = false })
