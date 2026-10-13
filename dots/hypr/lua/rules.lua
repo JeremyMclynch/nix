@@ -112,7 +112,6 @@ hl.workspace_rule({ workspace = "f[1]s[false]",   gaps_out = vars.singleWindowGa
 
 -- Bind workspaces to monitors so Dell = ws1 (primary), laptop = ws2+
 hl.workspace_rule({ workspace = "1", monitor = "desc:Dell Inc. DELL S3221QS DDSQ5Y3" })
-hl.workspace_rule({ workspace = "2", monitor = "eDP-1" })
 
 -- ######## Layer rules ########
 hl.layer_rule({ match = { namespace = "hyprpicker" },    animation = "fade" }) -- Colour picker out animation
