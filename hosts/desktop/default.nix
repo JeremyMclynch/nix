@@ -176,6 +176,7 @@ systemd.user.services.capture-card-loopback = {
     inputs.anipy-cli.packages.${pkgs.system}.default
     mkosi
     rclone
+    discord
   ];
 
   system.stateVersion = "25.11";

@@ -84,5 +84,7 @@ git push origin main || {
 # Back to where you were
 popd
 
+hyprctl reload
+
 # Notify all OK!
 notify-send -e "NixOS Rebuilt OK!" --icon=software-update-available-symbolic
