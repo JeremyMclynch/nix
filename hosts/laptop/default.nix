@@ -12,6 +12,7 @@
     ../../modules/core/users.nix
 
     ../../modules/desktop/gnome.nix
+    ../../modules/desktop/noctalia-greeter.nix
     ../../modules/desktop/printing.nix
     ../../modules/desktop/hyprland.nix
 

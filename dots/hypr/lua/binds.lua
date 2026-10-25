@@ -123,7 +123,7 @@ hl.bind("SUPER + J", hl.dsp.layout("togglesplit"))
 -- Apps
 hl.bind("SUPER + return",         hl.dsp.exec_cmd("app2unit -- foot"))
 hl.bind("SUPER + SHIFT + return", hl.dsp.exec_cmd("app2unit -- foot -T foot-float"))
-hl.bind("SUPER + B", hl.dsp.exec_cmd("app2unit -- firefox"))
+hl.bind("SUPER + B", hl.dsp.exec_cmd("app2unit -- zen-beta"))
 hl.bind("SUPER + C", hl.dsp.exec_cmd("app2unit -- gnome-calculator"))
 hl.bind("SUPER + G", hl.dsp.exec_cmd("app2unit -- github-desktop"))
 hl.bind("SUPER + E", hl.dsp.exec_cmd("app2unit -- nautilus"))
