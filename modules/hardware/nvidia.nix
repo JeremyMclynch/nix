@@ -4,8 +4,8 @@
   #
   # Blackwell (RTX 50-series) is supported ONLY by NVIDIA's open kernel modules,
   # so `open = true` is mandatory here -- the proprietary/closed modules will not
-  # drive this GPU. It also needs a recent driver branch (>= 570); the `stable`
-  # nvidia package on current nixos-unstable is new enough.
+  # drive this GPU. It also needs a recent driver branch (>= 570); the
+  # `production` branch selected below is new enough (see the package note).
   #
   # The AMD GPU is deliberately kept working too: amdgpu is an in-kernel driver
   # that loads automatically for any AMD card present, and it is also listed in
@@ -22,9 +22,16 @@
     modesetting.enable = true;   # required for Wayland and for a clean console/X handoff
     open = true;                 # REQUIRED for Blackwell / RTX 50-series
     nvidiaSettings = true;       # install the nvidia-settings control panel
-    # `latest` = the newest driver branch nixpkgs packages (newer than `stable`
-    # or `beta`). Update it along with nixpkgs via `nix flake update nixpkgs`.
-    package = config.boot.kernelPackages.nvidiaPackages.latest;
+    # Use the `production` branch, NOT `latest`.
+    #
+    # `latest` (the 615.71.09 beta) segfaults inside its own Vulkan shader
+    # compiler (libnvidia-gpucomp.so) on this RTX 5080 -- it crashes Proton/DXVK
+    # games at pipeline-compile time and was also behind the ray-tracing freeze.
+    # `production` (595.104.02) is NVIDIA's vetted branch and is still far newer
+    # than the 570 series that first added Blackwell support, so the 5080 is
+    # fully supported. Revisit `latest` once a newer beta lands that fixes the
+    # compiler crash.
+    package = config.boot.kernelPackages.nvidiaPackages.production;
     # powerManagement is left at its default (off): this host disables
     # sleep/suspend/hibernate entirely, so the suspend/resume workarounds that
     # flag enables are not needed.
