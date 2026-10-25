@@ -59,6 +59,14 @@
   services.xrdp.defaultWindowManager = "startxfce4";
   services.xrdp.openFirewall = true;
 
+  # XFCE (enabled above for xrdp) ships xfce4-notifyd, a D-Bus-activated
+  # notification daemon. In the local Hyprland/GNOME session it races Noctalia
+  # for the org.freedesktop.Notifications bus name and sometimes wins, so
+  # notifications show up as generic XFCE popups instead of Noctalia's. Mask the
+  # unit so it can never be activated and Noctalia always owns notifications.
+  # (The remote xrdp XFCE session then has no popup daemon, which is fine here.)
+  systemd.user.services.xfce4-notifyd.enable = false;
+
   services.sysstat.enable = true;
 
   services.udev = {
