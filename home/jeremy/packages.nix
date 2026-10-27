@@ -139,6 +139,7 @@
     man-pages-posix
     caligula
     thunderbird
+    drawio
     # Zen Browser from the zen-browser-flake input (tracks upstream releases,
     # newer than nixpkgs). `.default` is the stable channel. Update with
     # `nix flake update zen-browser` then rebuild.
