@@ -177,6 +177,8 @@ systemd.user.services.capture-card-loopback = {
     apptainer
     wofi
     lutris
+    bottles
+    wineWow64Packages.waylandFull
     # rpcs3  # upstream build broken: undefined reference to __glewXSwapIntervalEXT in GLGSRender
     #discord
     #kicad
