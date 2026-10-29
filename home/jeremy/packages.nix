@@ -123,7 +123,9 @@
     mpv
     gimp
     hyprshot
-    hyprpolkitagent
+    # hyprpolkitagent removed: noctalia provides the polkit authentication agent
+    # (shell.polkit_agent = true), and running two agents conflicts on the
+    # org.freedesktop.PolicyKit1 registration. See dots/hypr/lua/execs.lua.
     hypridle
     doxx
     xleak

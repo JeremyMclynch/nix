@@ -6,7 +6,12 @@ local vars = require("lua.variables")
 hl.on("hyprland.start", function()
     -- Keyring and auth
     hl.exec_cmd("gnome-keyring-daemon --start --components=secrets")
-    hl.exec_cmd("systemctl --user start hyprpolkitagent")
+    -- Polkit authentication agent is provided by noctalia itself
+    -- (shell.polkit_agent = true in its settings); it registers on
+    -- org.freedesktop.PolicyKit1 when the shell starts below. Do NOT also start
+    -- hyprpolkitagent here -- only one agent can own the authentication-agent
+    -- registration per session, and whichever starts first wins, which would
+    -- lock noctalia's agent out.
 
     -- Clipboard history
     hl.exec_cmd("wl-paste --type text --watch cliphist store")
