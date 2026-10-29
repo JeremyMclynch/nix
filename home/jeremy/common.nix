@@ -101,6 +101,20 @@
       recursive = true;
       executable = true;
     };
+    # Suppress GNOME's standalone polkit agent in non-GNOME (Hyprland) sessions.
+    # uwsm activates xdg-desktop-autostart.target, which launches the system
+    # /etc/xdg/autostart entries -- including polkit-gnome-authentication-agent-1
+    # (its AutostartCondition runs it in every session *except* GNOME). It would
+    # grab the org.freedesktop.PolicyKit1 authentication-agent slot before
+    # noctalia (whose own agent we use: shell.polkit_agent = true), giving the
+    # old GTK auth dialog. A user-level autostart entry of the same name with
+    # Hidden=true overrides the system one and the xdg-autostart generator skips
+    # it. Harmless in a GNOME session -- gnome-shell has its own built-in agent
+    # and that condition already disabled this one there anyway.
+    ".config/autostart/polkit-gnome-authentication-agent-1.desktop".text = ''
+      [Desktop Entry]
+      Hidden=true
+    '';
     # Hyprland Lua API type stubs (defines the `hl` global) for lua_ls.
     # Referenced by dots/hypr/.luarc.json so neovim/LazyVim recognizes `hl`
     # and offers completion. Tracks the current Hyprland version automatically.
