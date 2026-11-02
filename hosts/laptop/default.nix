@@ -34,7 +34,7 @@
   fonts.fontDir.enable = true;
 
   virtualisation = {
-    vmware.host.enable = true;
+    #vmware.host.enable = true;
     docker.enable = true;
   };
 
