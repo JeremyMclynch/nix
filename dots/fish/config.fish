@@ -48,6 +48,7 @@ if status is-interactive
     abbr vibind 'nvim $dotpath/hypr/lua/binds.lua'
     abbr virules 'nvim $dotpath/hypr/lua/rules.lua'
     abbr cdh 'cd $dotpath/hypr/lua/'
+    abbr cdn 'cd $dotpath/../ && git pull'
     abbr vifish 'nvim $dotpath/fish/config.fish'
     abbr vi nvim
     abbr vim nvim

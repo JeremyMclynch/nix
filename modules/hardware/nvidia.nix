@@ -31,7 +31,7 @@
     # than the 570 series that first added Blackwell support, so the 5080 is
     # fully supported. Revisit `latest` once a newer beta lands that fixes the
     # compiler crash.
-    package = config.boot.kernelPackages.nvidiaPackages.production;
+    package = config.boot.kernelPackages.nvidiaPackages.latest;
     # powerManagement is left at its default (off): this host disables
     # sleep/suspend/hibernate entirely, so the suspend/resume workarounds that
     # flag enables are not needed.
