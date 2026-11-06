@@ -35,7 +35,22 @@
 
   virtualisation = {
     #vmware.host.enable = true;
-    docker.enable = true;
+    docker = {
+      enable = true;
+      # Move Docker off its default 172.17.0.0/16 bridge so it can't collide
+      # with a LAN in the 172.16.0.0/12 range. On such a network docker0's
+      # default 172.17.0.1/16 overlaps the real subnet/gateway, the kernel
+      # treats that space as local to docker0, stops answering the gateway's
+      # ARP, and the connection blackholes in ~30s cycles. Relocate the bridge
+      # (bip) and the user/compose network pool to 10.x. (Same fix as the
+      # desktop host.)
+      daemon.settings = {
+        bip = "10.200.0.1/24";
+        default-address-pools = [
+          { base = "10.201.0.0/16"; size = 24; }
+        ];
+      };
+    };
   };
 
   hardware.enableAllFirmware = true;

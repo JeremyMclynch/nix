@@ -37,6 +37,20 @@
 
   virtualisation.docker = {
     enable = true;
+    # Move Docker off its default 172.17.0.0/16 bridge. This LAN hands out
+    # addresses in 172.16.0.0/12 (DHCP gave this host 172.17.0.5/20, gateway
+    # 172.17.0.1), which collides head-on with docker0's default 172.17.0.1/16:
+    # the kernel then treats 172.17.0.0/16 (incl. the real gateway .1) as local
+    # to docker0 and stops answering the gateway's "who-has 172.17.0.5" ARP,
+    # so the gateway can't learn our MAC and blackholes return traffic in
+    # ~30s cycles. Relocate the default bridge (bip) and the pool Docker carves
+    # user/compose networks from to 10.x, well clear of this network's 172.16/12.
+    daemon.settings = {
+      bip = "10.200.0.1/24";
+      default-address-pools = [
+        { base = "10.201.0.0/16"; size = 24; }
+      ];
+    };
   };
 
   qt.platformTheme = "qt5ct";
