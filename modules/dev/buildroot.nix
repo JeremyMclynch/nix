@@ -43,6 +43,13 @@ let
       xz lzop lz4 zstd                       # image/rootfs compressors
     ];
 
+    # Install the `dev` outputs too, so headers + pkg-config files land in
+    # /usr/include and /usr/lib/pkgconfig. Without this, buildFHSEnv ships only
+    # each library's runtime output, so e.g. ncurses.h is missing and
+    # `make menuconfig` fails its ncurses probe (likewise openssl/zlib/libelf
+    # headers for the kernel's host tools).
+    extraOutputsToInstall = [ "dev" ];
+
     # Make https fetches (wget/curl/git) trust the system CA bundle inside the
     # sandbox, and give a one-line hint on entry.
     profile = ''
