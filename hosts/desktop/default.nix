@@ -28,6 +28,7 @@
     ../../modules/noctalia/noctalia.nix
 
     ../../modules/dev/environment.nix
+    ../../modules/dev/buildroot.nix
   ];
 
   programs.nix-ld.enable = true;
@@ -139,6 +140,16 @@
 
 systemd.user.services.capture-card-loopback = {
   description = "Loopback Elgato capture card audio to FiiO K3";
+  # Start with the user session, after PipeWire is up. The udev rule's
+  # SYSTEMD_USER_WANTS only reliably triggers on a *hot-plug* while logged in;
+  # for a card already attached at boot, its `add` event fires before the user
+  # systemd instance exists, so nothing pulls the (static) unit in. Giving it an
+  # install target makes it come up every login regardless. pw-loopback tolerates
+  # the target nodes being absent (it links them when they appear), so it's
+  # harmless when the card/DAC isn't plugged in; the udev rules still stop/start
+  # it on unplug/replug.
+  wantedBy = [ "default.target" ];
+  wants = [ "pipewire.service" ];
   after = [ "pipewire.service" ];
   serviceConfig = {
     ExecStart = ''
