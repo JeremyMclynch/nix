@@ -93,4 +93,20 @@ if status is-interactive
         end
     end
 
+    function transfer
+      if [ -z "$argv" ]
+        echo "No arguments skipping..."
+      else
+        if [ (count $argv) -gt 1 ]
+          echo "Too many arguments skipping..."
+        else
+          if [ -z "$SSH_CLIENT_HOSTNAME" ]
+            echo "Not in SSH session skipping..."
+          else
+            echo rsync -avzP "$argv" $SSH_CLIENT_HOSTNAME:incoming/
+          end
+        end
+      end
+    end
+
 end
