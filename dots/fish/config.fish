@@ -42,7 +42,7 @@ if status is-interactive
     abbr sshwulver 'ssh jmm277@wulver.njit.edu'
     abbr sshwspr1 'ssh wsprdaemon@njit-bl-1'
     abbr sshwspr2 'ssh wsprdaemon@njit-bl-2'
-    abbr sshd 'ssh jeremy@nixos-desktop'
+    abbr sshd 'ssh -t jeremy@nixos-desktop "fish"'
     abbr viconf 'nvim $dotpath/hypr/hyprland.lua'
     abbr vivar 'nvim $dotpath/hypr/lua/variables.lua'
     abbr vibind 'nvim $dotpath/hypr/lua/binds.lua'
