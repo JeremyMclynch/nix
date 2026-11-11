@@ -103,7 +103,7 @@ if status is-interactive
           if [ -z "$SSH_CLIENT_HOSTNAME" ]
             echo "Not in SSH session skipping..."
           else
-            echo rsync -avzP "$argv" $SSH_CLIENT_HOSTNAME:incoming/
+            rsync -avzP "$argv" $SSH_CLIENT_HOSTNAME:incoming/
           end
         end
       end
