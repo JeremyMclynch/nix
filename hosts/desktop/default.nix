@@ -20,6 +20,7 @@
 
     ../../modules/services/audio-pipewire.nix
     ../../modules/services/tailscale.nix
+    ../../modules/services/ssh-origin.nix
     ../../modules/services/keyd.nix
 
     ../../modules/caelestia/deps.nix
