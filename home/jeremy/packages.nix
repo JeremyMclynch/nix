@@ -133,7 +133,7 @@
     visidata
     tmux
     claude-code
-    libreoffice-qt-fresh
+    libreoffice-qt
     speedtest-cli
     nix-index
     proton-vpn
