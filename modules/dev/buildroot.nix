@@ -19,6 +19,16 @@
 # no spaces. `make menuconfig` works too (ncurses is included).
 
 let
+  # dash built WITHOUT libedit. Stock nixpkgs dash links libedit -> libncursesw,
+  # and bash links readline -> libncursesw, so either as /bin/sh re-triggers the
+  # "no version information available" warning (see extraBuildCommands). This
+  # variant has no ncurses dependency at all, so /bin/sh is truly clean.
+  dashNoEdit = pkgs.dash.overrideAttrs (_: {
+    buildInputs = [ ];
+    configureFlags = [ ];
+    preConfigure = "";
+  });
+
   buildrootFHS = pkgs.buildFHSEnv {
     name = "buildroot-fhs";
 
@@ -42,6 +52,24 @@ let
       openssl elfutils zlib libxcrypt        # host libs: kernel objtool/certs, host tools
       xz lzop lz4 zstd                       # image/rootfs compressors
     ];
+
+    # Make /bin/sh dash, not bash -- exactly like Debian/Ubuntu, where Buildroot
+    # is developed and tested.
+    #
+    # The default FHS /bin/sh is Nix's bashInteractive, which NEEDs libreadline,
+    # which NEEDs a *versioned* libncursesw. Buildroot puts its own host
+    # output/host/lib on LD_LIBRARY_PATH, and its host libncursesw.so.6 is built
+    # WITHOUT symbol versioning -- so every /bin/sh invocation prints
+    #   "libncursesw.so.6: no version information available (required by libreadline)"
+    # to the shell's output. host-gobject-introspection captures command output
+    # as compiler flags, so that warning became bogus gcc args and the build died
+    # (gcc: "linker input file not found: /bin/sh:"). dash has no readline/ncurses
+    # dependency, so the warning disappears and sh behaves as on a normal distro.
+    # bash is still available as `bash` for the interactive shell.
+    extraBuildCommands = ''
+      rm -f $out/usr/bin/sh
+      ln -s ${dashNoEdit}/bin/dash $out/usr/bin/sh
+    '';
 
     # Install the `dev` outputs too, so headers + pkg-config files land in
     # /usr/include and /usr/lib/pkgconfig. Without this, buildFHSEnv ships only
