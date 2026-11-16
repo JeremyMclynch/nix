@@ -114,6 +114,7 @@ hl.workspace_rule({ workspace = "f[1]s[false]",   gaps_out = vars.singleWindowGa
 hl.workspace_rule({ workspace = "1", monitor = "desc:Microstep MAG 271QPX E2" })
 hl.workspace_rule({ workspace = "1", monitor = "desc:BOE 0x0C9F 0x0000006A" })
 hl.workspace_rule({ workspace = "2", monitor = "desc:Samsung Electric Company Odyssey G5 HNAX303048" })
+hl.workspace_rule({ workspace = "2", monitor = "desc:Dell Inc. DELL S3221QS DDSQ5Y3" })
 
 
 -- ######## Layer rules ########
